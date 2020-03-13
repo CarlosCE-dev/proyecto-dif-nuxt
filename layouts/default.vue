@@ -34,7 +34,7 @@ export default ({
         { name: 'Guardianes',  route: "/guardian", icon: 'mdi-account-circle' },
         { name: 'Alumnos',  route: "/", icon: 'mdi-face' }, 
         { name: 'Reportes',  route: "/", icon: 'mdi-poll-box' }, 
-        { name: 'Configuración',  route: "/", icon: 'mdi-cog' },
+        { name: 'Configuración',  route: "/configuracion", icon: 'mdi-cog' },
         { name: 'Administrador',  route: "/", icon: 'mdi-tools' },  
         ]
     }),
