@@ -1,7 +1,8 @@
 <template>
     <div>
         <v-form ref="form" v-model="valid" lazy-validation>
-            <v-card>
+            <h1> Configuración</h1>
+            <v-card class="card-foto">
                 <v-container fluid class="h100">
                     <v-row align="center">
                         <v-col md="2" cols="12" align-self="center">
@@ -32,7 +33,7 @@
                                         </template>
                                     </v-file-input>
                                 </v-col>
-                                <v-col class="pa-0 pl-3">
+                                <v-col class="pa-0 pl-3 caption">
                                      Debe ser un archivo JPEG o PNG de máximo 10 MB.
                                 </v-col>
                                
@@ -71,5 +72,13 @@ export default {
 <style scoped>
 .h100{
     height: 100%;
+}
+.card-foto{
+    height: 242px;
+}
+@media screen and (max-width: 959px){
+   .card-foto{
+    height: unset;
+    }
 }
 </style>

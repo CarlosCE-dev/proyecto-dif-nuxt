@@ -19,7 +19,7 @@
 <script>
 // Components
 import Sidebar from "~/components/sidebar/sidebar.vue";
-import Appbar from "~/components/sidebar/appbar.vue";
+import Appbar from "~/components/appbar/appbar.vue";
 
 export default ({
     components: {
