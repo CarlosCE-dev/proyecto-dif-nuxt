@@ -6,7 +6,7 @@
                     :color="hover ? '#fafafa' : '#FFF'"
                     :to="item.route" flat>
 
-                <v-list-item>
+                <v-list-item class="list-item">
                     <div class="icon-box d-flex align-center justify-center azul">
                         <span class="circle"></span>
                         <v-icon color="white">{{ item.icon }}</v-icon>
@@ -37,6 +37,9 @@
 </script>
 
 <style scoped>
+.list-item{
+    height: 58px;
+}
 .card-item{
     cursor:pointer;
     border-radius: 20px !important;

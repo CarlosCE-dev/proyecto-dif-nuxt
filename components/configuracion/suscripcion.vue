@@ -4,8 +4,9 @@
         <v-card class="card-suscripcion">
             <span class="fondo-morado morado d-flex align-center justify-center">
                 <span class="circulo-morado"></span>
-                <div class="texto-morado white--text">
-                   123123
+                <div class="texto-morado white--text text-center">
+                   Suscripción
+                   <br> <strong class="green--text suscripcion-status"> Activa</strong>
                 </div>
             </span>
             <div class="descripcion d-flex flex-column justify-center">
@@ -33,6 +34,11 @@
 </script>
 
 <style scoped>
+.suscripcion-status{
+    padding: 5px;
+    background-color: white;
+    border-radius: 15px;
+}
 .texto-morado{
     font-size:1.4rem;
 }

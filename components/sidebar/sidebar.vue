@@ -8,13 +8,13 @@
             
             <!-- Avatar -->
             <v-list-item class="sm-box">
-            <v-list-item-content class="sm-ctn">
-                <v-list-item-title class="text-right font-weight-bold title">Fernado Felix</v-list-item-title>
-                <v-list-item-subtitle  class="text-right">Super admin</v-list-item-subtitle>
-            </v-list-item-content>
-            <v-list-item-avatar>
-                <v-img src="https://cdn.vuetifyjs.com/images/lists/2.jpg"></v-img>
-            </v-list-item-avatar>
+                <v-list-item-content class="sm-ctn">
+                    <v-list-item-title class="text-right font-weight-bold title">Fernado Felix</v-list-item-title>
+                    <v-list-item-subtitle  class="text-right">Super admin</v-list-item-subtitle>
+                </v-list-item-content>
+                <v-list-item-avatar>
+                    <v-img src="https://cdn.vuetifyjs.com/images/lists/2.jpg"></v-img>
+                </v-list-item-avatar>
             </v-list-item>
 
             <!-- Spacer -->
@@ -26,12 +26,12 @@
 
             <!-- Titulo -->
             <v-list-item-title class="text-center py-1 morado--text">
-            <strong class="custom-title font-weight-bold">Custo Kids Panel</strong>
+                <strong class="custom-title font-weight-bold">Custo Kids Panel</strong>
             </v-list-item-title>
             
             <!-- Cards -->
             <div class="d-flex align-center justify-center" v-for="(item, index) in items" :key="index">
-            <Card :item="item"/>
+                <Card :item="item"/>
             </div>
 
         </v-list>
@@ -74,11 +74,9 @@ export default {
     computed: {
         drawer: {
             get () {
-            //@ts-ignore
             return this.value;
             },
             set (value) {
-            //@ts-ignore
             this.$emit('input', value)
             }
         }

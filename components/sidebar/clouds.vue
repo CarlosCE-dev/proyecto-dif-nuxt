@@ -54,6 +54,7 @@
 </template>
 <style scoped>
 .cloud-two{
+    z-index: -1;
     position: absolute;
     left: 10%;
     bottom: 8%;
@@ -61,6 +62,7 @@
     width: 180px;
 }
 .cloud-one{
+    z-index: -1;
     position: absolute;
     right: 5%;
     bottom: 5%;
@@ -69,6 +71,7 @@
 }
 
 .cloud-three{
+    z-index: -1;
     position: absolute;
     left: -17%;
     bottom: 12%;
@@ -76,6 +79,7 @@
     width: 140px;
 }
 .cloud-four{
+    z-index: -1;
     position: absolute;
     right: -17%;
     top: 12%;
@@ -83,6 +87,7 @@
     width: 140px;
 }
 .cloud-five{
+    z-index: -1;
     position: absolute;
     left: -3%;
     top: -4%;
