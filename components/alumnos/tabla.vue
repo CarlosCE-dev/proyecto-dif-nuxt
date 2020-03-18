@@ -110,7 +110,7 @@
                     <!-- Cell -->
                     <div class="custom-table-cell flex-basis-10  action-cell">
                         <div class="center-wrapper pa-1">
-                            <v-btn small color="orange" class="white--text" to="/alumnos/123"> Gestionar </v-btn>
+                            <v-btn small color="orange" class="white--text" to="/alumnos/perfil"> Gestionar </v-btn>
                         </div>
                     </div>
                      <!-- Cell -->

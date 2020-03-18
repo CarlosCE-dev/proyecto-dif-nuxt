@@ -6,9 +6,9 @@
             </span>
         </div>
         <div class="d-flex align-center justify-end pa-4">
-            <v-btn color="orange" dark>Editar</v-btn>
+            <v-btn color="orange" dark @click="openEdit">Editar</v-btn>
             <span class="px-1"></span>
-            <v-btn color="red" dark>Borrar</v-btn>
+            <v-btn color="red" @click="openDelete" dark>Borrar</v-btn>
         </div>
         <span class="spacer"></span>
         <div class="d-flex align-center">
@@ -23,7 +23,7 @@
                 </div>
             </span>
             <span class="pr-3">
-                <v-btn fab color="success" >
+                <v-btn fab color="success" @click="openAdd">
                     <v-icon x-large>mdi-plus</v-icon>
                 </v-btn>
             </span>
@@ -41,7 +41,17 @@
 
 <script>
     export default {
-        
+        methods: {
+            openEdit() {
+                this.$emit('editar', true );    
+            },
+            openDelete() {
+                this.$emit('borrar', true );    
+            },
+            openAdd() {
+                this.$emit('agregar', true );    
+            }
+        },
     }
 </script>
 
