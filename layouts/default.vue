@@ -17,9 +17,11 @@
 </template>
 
 <script>
+// Helpers
+import { orientationType } from '~/helpers/orientation';
 // Components
 import Sidebar from "~/components/sidebar/sidebar.vue";
-import Appbar from "~/components/sidebar/appbar.vue";
+import Appbar from "~/components/appbar/appbar.vue";
 
 export default ({
     components: {
@@ -27,17 +29,26 @@ export default ({
       Appbar
     },
     data: () => ({
+        mobil: false,
         drawer: true,
         fixed: true,
         items: [
         { name: 'Dashboard', route: "/", icon: 'mdi-home' },
         { name: 'Guardianes',  route: "/guardian", icon: 'mdi-account-circle' },
-        { name: 'Alumnos',  route: "/", icon: 'mdi-face' }, 
+        { name: 'Alumnos',  route: "/alumnos", icon: 'mdi-face' }, 
         { name: 'Reportes',  route: "/", icon: 'mdi-poll-box' }, 
-        { name: 'Configuración',  route: "/", icon: 'mdi-cog' },
-        { name: 'Administrador',  route: "/", icon: 'mdi-tools' },  
+        { name: 'Configuración',  route: "/configuracion", icon: 'mdi-cog' },
+        { name: 'Administrador',  route: "/administrador", icon: 'mdi-tools' },  
         ]
     }),
+    beforeMount () {
+        this.mobil = orientationType();
+        this.$store.commit('window/isMobil', this.mobil); 
+
+        if ( this.mobil ) {
+          this.drawer = false;
+        }
+    },
     methods: {
       drawerController() {
         this.drawer = !this.drawer;

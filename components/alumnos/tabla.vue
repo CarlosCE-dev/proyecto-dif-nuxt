@@ -1,23 +1,18 @@
 <template>
     <div>
 
-        <!-- Componentes -->
-        <ModalAgregar v-model="modal_agregar"/>
-        <ModalBorrar v-model="modal_borrar"/>
-        <ModalEditar v-model="modal_editar"/>
-
-            <v-row class="pa-3">
-                <v-col class="px-0 py-1" cols="12" sm="12" md="6">
-                        <v-text-field prepend-icon="mdi-magnify" hide-details placeholder="Search..."></v-text-field>
-                </v-col>
-                <v-col align-self="end" justify-self="end" class="px-0 py-1" cols="12" sm="12" md="6">
-                    <div class="d-flex justify-end">
-                        <v-btn color="success" @click="modal_agregar = true">
-                            Agregar guardian
-                        </v-btn>
-                    </div>
-                </v-col>
-            </v-row>
+        <v-row class="pa-3">
+            <v-col class="px-0 py-1" cols="12" sm="12" md="6">
+                    <v-text-field prepend-icon="mdi-magnify" hide-details placeholder="Search..."></v-text-field>
+            </v-col>
+            <v-col align-self="end" justify-self="end" class="px-0 py-1" cols="12" sm="12" md="6">
+                <div class="d-flex justify-end">
+                    <v-btn color="success" @click="modal_agregar = true">
+                        Agregar guardian
+                    </v-btn>
+                </div>
+            </v-col>
+        </v-row>
      
         <!----- Table ------>
         <div class="custom-table-wrapper py-2">
@@ -55,7 +50,7 @@
             <div class="custom-table-body">
                 
                 <!--Row Starts-->
-                <div class="custom-table-row" v-for="(guardian, index) in guardianes" :key="index">
+                <div class="custom-table-row" v-for="(item, index) in 50" :key="index">
 
                     <!-- Cell -->
                     <div class="custom-table-cell flex-basis-5">
@@ -63,7 +58,7 @@
                             ID
                         </span>
                         <div class="center-wrapper">
-                            <span class="column-text"> {{ guardian.id }} </span>
+                            <span class="column-text">1</span>
                         </div>
                     </div>
                     <!-- Cell -->
@@ -74,7 +69,7 @@
                             Name
                         </span>
                         <div class="center-wrapper">
-                            <span class="column-text"> {{ guardian.name }}</span>
+                            <span class="column-text">Carlos Esteban Corral Esparza</span>
                         </div>
                     </div>
                     <!-- Cell -->
@@ -115,7 +110,7 @@
                     <!-- Cell -->
                     <div class="custom-table-cell flex-basis-10  action-cell">
                         <div class="center-wrapper pa-1">
-                            <v-btn small color="orange" class="white--text" @click="editar( guardian )"> Editar </v-btn>
+                            <v-btn small color="orange" class="white--text" to="/alumnos/perfil"> Gestionar </v-btn>
                         </div>
                     </div>
                      <!-- Cell -->
@@ -123,7 +118,7 @@
                      <!-- Cell -->
                     <div class="custom-table-cell flex-basis-10  action-cell">
                         <div class="center-wrapper pa-1">
-                            <v-btn small color="red" class="white--text" @click="borrar( guardian )"> Borrar </v-btn>
+                            <v-btn small color="red" class="white--text" @click="modal_borrar = true"> Borrar </v-btn>
                         </div>
                     </div>
                      <!-- Cell -->
@@ -140,44 +135,18 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 // Components
-import ModalAgregar from '~/components/guardian/agregar_modal.vue';
-import ModalBorrar from '~/components/guardian/borrar_modal.vue';
-import ModalEditar from '~/components/guardian/editar_modal.vue';
 
 export default ({
     components: {
-        ModalAgregar,
-        ModalBorrar,
-        ModalEditar
+       
     },
     data: () => ({
         // Modales
         modal_agregar: false,
         modal_borrar: false,
-        modal_editar: false
-    }), 
-    computed: {
-        ...mapGetters("guardian", [
-            "getGuardianes",
-        ]),
-        guardianes(){
-            console.log(this.getGuardianes);
-            
-            return this.getGuardianes
-        }  
-    }, 
-    methods: {
-        borrar( guardian ) {  
-            this.$store.commit('guardian/setGuardian', guardian ); 
-            this.modal_borrar = true;
-        },
-        editar( guardian ) {
-            this.$store.commit('guardian/setGuardian', guardian ); 
-            this.modal_editar = true;
-        }
-    },
+
+    })  
 })
 </script>
 

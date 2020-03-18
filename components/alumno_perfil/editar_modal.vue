@@ -4,7 +4,7 @@
         <v-dialog v-model="show" persistent max-width="600px">
           <v-card>
             <v-card-title>
-              <span class="headline">Add new guardian</span>
+              <span class="headline">Editar alumno</span>
             </v-card-title>
             <v-card-text>
               <v-container>
@@ -41,7 +41,7 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="red darken-1" text @click="show = false">Cancelar</v-btn>
-              <v-btn color="green darken-1" text @click="agregar">Agregar</v-btn>
+              <v-btn color="green darken-1" text @click="show = false">Agregar</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -54,20 +54,15 @@ export default ({
     props: ['value'],
     computed: {
         show: {
-          get () {
-           return this.value;
-          },
-          set (value) {
+            get () {
+            //@ts-ignore
+            return this.value;
+            },
+            set (value) {
+            //@ts-ignore
             this.$emit('input', value)
-          }
+            }
         }
-    },
-    methods: {
-      agregar() {
-        const guardian = { id: Math.random().toString(36).substring(7), name: Math.random().toString(36).substring(7) }
-        this.$store.commit('guardian/addGuardian', guardian ); 
-        this.show = false;
-      }
     },  
 });
 </script>

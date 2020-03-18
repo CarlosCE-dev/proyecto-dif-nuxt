@@ -74,7 +74,9 @@ export default {
           'ligero'  :  '#F7FAFF',
           'ligero-2':  '#B3E5FC',
           'morado'  :  '#7C4DFF', 
-          'azul'    :  '#03A9F4', 
+          'azul'    :  '#03A9F4',
+          'verde'   :  '#89F3B4',
+          'rojo'    :  '#F38989',
         }
       }
     }

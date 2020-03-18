@@ -23,10 +23,6 @@ export default $axios => resource => ({
   },
 
   update(id, payload) {
-    let headers = {
-      Authorization: 'Bearer ' + token,
-      'Content-Type': 'multipart/form-data'
-    }
     return $axios.$put(`${ URL }${ resource }/${ id }`, payload, headers);
   },
 
