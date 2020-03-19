@@ -37,7 +37,7 @@ export default ({
   }, 
   methods: {
     eliminar() {
-      this.$store.commit('guardian/removeGuardian', this.guardian.id ); 
+      this.$store.commit('guardian/remove', this.guardian.id ); 
       this.show = false;
     }
   }, 

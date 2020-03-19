@@ -4,13 +4,13 @@
         <v-dialog v-model="show" persistent max-width="600px">
           <v-card>
             <v-card-title>
-              <span class="headline">Editar guardian</span>
+              <span class="headline">Add new guardian</span>
             </v-card-title>
             <v-card-text>
               <v-container>
                 <v-row>
                   <v-col cols="12" sm="6" md="4">
-                    <v-text-field label="Legal first name*" required v-model="name"></v-text-field>
+                    <v-text-field label="Legal first name*" required></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
                     <v-text-field label="Legal middle name" hint="example of helper text only on focus"></v-text-field>
@@ -41,7 +41,7 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="red darken-1" text @click="show = false">Cancelar</v-btn>
-              <v-btn color="green darken-1" text @click="editar">Actualizar</v-btn>
+              <v-btn color="green darken-1" text @click="agregar">Agregar</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -50,20 +50,8 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
 export default ({
     props: ['value'],
-    data: () => ({
-        id: '',
-        name: '',
-    }),
-    watch: {
-        guardian ( guardian ) {
-           this.id = guardian.id;
-           this.name = guardian.name;
-        },
-    },
     computed: {
         show: {
           get () {
@@ -72,18 +60,12 @@ export default ({
           set (value) {
             this.$emit('input', value)
           }
-        },
-        ...mapGetters("guardian", [
-            "getGuardian",
-        ]),
-        guardian(){
-            return this.getGuardian
-        } 
+        }
     },
     methods: {
-      editar() {
-        const guardian = { id: this.id , name: this.name }
-        this.$store.commit('guardian/editGuardian',  guardian ); 
+      agregar() {
+        const guardian = { id: Math.random().toString(36).substring(7), name: Math.random().toString(36).substring(7) }
+        this.$store.commit('guardian/add', guardian ); 
         this.show = false;
       }
     },  

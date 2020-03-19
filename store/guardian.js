@@ -7,18 +7,18 @@ export const state = () => ({
 });
 
 export const mutations = {
-    addGuardian( state, guardian ){
-        state.guardianes.push( guardian );
+    add( state, payload ){
+        state.guardianes.push( payload );
     },
-    removeGuardian( state, id ){
+    remove( state, id ){
         state.guardianes = state.guardianes.filter( s => s.id !== id )
     },
-    editGuardian( state, guardian ){
-        const guar = state.guardianes.find( g => g.id === guardian.id );
-        guar.name = guardian.name;
+    edit( state, payload ){
+        const guardian = state.guardianes.find( g => g.id === payload.id );
+        guardian.name = payload.name;
     },
-    setGuardian( state, guardian ){
-        state.guardian = guardian;
+    set( state, payload ){
+        state.guardian = payload;
     }
 }
 export const getters = {

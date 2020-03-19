@@ -39,7 +39,7 @@
                                
                                 <v-col cols="12">
 
-                                    <v-btn color="primary" block>
+                                    <v-btn color="azul" dark block>
                                     Upload profile image
                                     </v-btn>
                                 </v-col>

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Tabla from '~/components/alumnos/tabla.vue';
+import Tabla from '~/components/alumno/tabla.vue';
 
 export default {
     components: {

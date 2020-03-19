@@ -4,7 +4,7 @@
         <v-dialog v-model="show" persistent max-width="600px">
           <v-card>
             <v-card-title>
-              <span class="headline">Add new guardian</span>
+              <span class="headline">Agregar nuevo tutor</span>
             </v-card-title>
             <v-card-text>
               <v-container>
@@ -54,21 +54,21 @@ export default ({
     props: ['value'],
     computed: {
         show: {
-          get () {
-           return this.value;
-          },
-          set (value) {
+            get () {
+            return this.value;
+            },
+            set (value) {
             this.$emit('input', value)
-          }
+            }
         }
-    },
+    },  
     methods: {
       agregar() {
-        const guardian = { id: Math.random().toString(36).substring(7), name: Math.random().toString(36).substring(7) }
-        this.$store.commit('guardian/addGuardian', guardian ); 
+        const tutor = { id: Math.random().toString(36).substring(7), name: Math.random().toString(36).substring(7) }
+        this.$store.commit('tutor/add', tutor ); 
         this.show = false;
       }
-    },  
+    },
 });
 </script>
 

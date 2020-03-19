@@ -7,17 +7,17 @@
                 </v-list-item-avatar>
                 <v-list-item-content class="sm-ctn">
                     <v-list-item-title class=" font-weight-bold text-wrap text-mobile">
-                        Carlos Esteban Corral Esparza
+                        {{ tutor.name }}
                     </v-list-item-title>
                     <v-list-item-subtitle> 
                         <strong> Parentecso </strong>
                     </v-list-item-subtitle>
                     <v-list-item-subtitle  class="black--text text-wrap">
-                        Dirección: Calle Independencia #24
+                        Dirección: Calle Independencia #24 {{ tutor.id }}
                     </v-list-item-subtitle>
                 </v-list-item-content>
                 <v-list-item-action>
-                    <v-btn icon>
+                    <v-btn icon @click="abrir">
                         <v-icon color="black">mdi-dots-vertical</v-icon>
                     </v-btn>
                 </v-list-item-action>
@@ -28,7 +28,12 @@
 
 <script>
 export default {
-    
+    props: ['tutor'],
+    methods: {
+        abrir() {
+           this.$emit( 'abrir', this.tutor );
+        }
+    },
 }
 </script>
 
