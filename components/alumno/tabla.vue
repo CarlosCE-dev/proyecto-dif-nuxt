@@ -141,8 +141,8 @@
 <script>
 import { mapGetters } from "vuex";
 // Components
-import ModalAgregar from '~/components/alumno/agregar_modal.vue';
-import ModalBorrar from '~/components/alumno/borrar_modal.vue';
+import ModalAgregar from '~/components/alumno/modal_agregar.vue';
+import ModalBorrar from '~/components/alumno/modal_borrar.vue';
 
 export default ({
     components: {

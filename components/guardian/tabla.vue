@@ -142,9 +142,9 @@
 <script>
 import { mapGetters } from "vuex";
 // Components
-import ModalAgregar from '~/components/guardian/agregar_modal.vue';
-import ModalBorrar from '~/components/guardian/borrar_modal.vue';
-import ModalEditar from '~/components/guardian/editar_modal.vue';
+import ModalAgregar from '~/components/guardian/modal_agregar.vue';
+import ModalBorrar from '~/components/guardian/modal_borrar.vue';
+import ModalEditar from '~/components/guardian/modal_editar.vue';
 
 export default ({
     components: {

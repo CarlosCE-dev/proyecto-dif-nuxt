@@ -24,7 +24,7 @@ import { mapGetters } from "vuex";
 import Header from "~/components/alumno_perfil/header.vue";
 
 import Tutores from "~/components/tutor/tutores.vue";
-import ModalAgregar from "~/components/tutor/agregar_modal.vue";
+import ModalAgregar from "~/components/tutor/modal_agregar.vue";
 
 import ModalEditar from "~/components/alumno_perfil/editar_modal.vue";
 import ModalBorrar from "~/components/alumno_perfil/borrar_modal.vue";

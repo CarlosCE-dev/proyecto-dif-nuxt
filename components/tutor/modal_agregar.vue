@@ -4,7 +4,7 @@
         <v-dialog v-model="show" persistent max-width="600px">
           <v-card>
             <v-card-title>
-              <span class="headline">Agregar muevo tutor</span>
+              <span class="headline">Agregar nuevo tutor</span>
             </v-card-title>
             <v-card-text>
               <v-container>
