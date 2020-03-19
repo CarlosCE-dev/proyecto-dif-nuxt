@@ -83,7 +83,7 @@ export default ({
     methods: {
       editar() {
         const guardian = { id: this.id , name: this.name }
-        this.$store.commit('guardian/editGuardian',  guardian ); 
+        this.$store.commit('guardian/edit',  guardian ); 
         this.show = false;
       }
     },  

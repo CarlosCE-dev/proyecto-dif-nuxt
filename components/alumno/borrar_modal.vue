@@ -3,7 +3,7 @@
     <v-dialog v-model="show" persistent max-width="290">
       <v-card>
         <v-card-title class="headline">Atención!</v-card-title>
-        <v-card-text class="black--text">Estas seguro que quieres remover a este guardian?</v-card-text>
+        <v-card-text class="black--text">Estas seguro que quieres remover a este alumno? {{ alumno.name }} </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="red darken-1" text @click="show = false">Cancelar</v-btn>
@@ -28,16 +28,16 @@ export default ({
           this.$emit('input', value)
         }
       },
-      ...mapGetters("guardian", [
-          "getGuardian",
+      ...mapGetters("alumno", [
+          "getAlumno",
       ]),
-      guardian(){
-          return this.getGuardian
+      alumno(){
+          return this.getAlumno
       }  
   }, 
   methods: {
     eliminar() {
-      this.$store.commit('guardian/remove', this.guardian.id ); 
+      this.$store.commit('galumno/remove', this.alumno.id ); 
       this.show = false;
     }
   }, 

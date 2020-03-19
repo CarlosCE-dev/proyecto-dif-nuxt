@@ -163,18 +163,16 @@ export default ({
             "getGuardianes",
         ]),
         guardianes(){
-            console.log(this.getGuardianes);
-            
             return this.getGuardianes
         }  
     }, 
     methods: {
         borrar( guardian ) {  
-            this.$store.commit('guardian/setGuardian', guardian ); 
+            this.$store.commit('guardian/set', guardian ); 
             this.modal_borrar = true;
         },
         editar( guardian ) {
-            this.$store.commit('guardian/setGuardian', guardian ); 
+            this.$store.commit('guardian/set', guardian ); 
             this.modal_editar = true;
         }
     },

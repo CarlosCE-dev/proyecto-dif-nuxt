@@ -19,7 +19,7 @@
             </span>
             <span class="w60 d-flex align-start">
                 <div class="text">
-                    Carlos Esteban Corral Esparza <br> Grupo: 1 - A  
+                    {{ alumno.name }} <br> Grupo: 1 - A  {{ alumno.id }}
                 </div>
             </span>
             <span class="pr-3">
@@ -31,8 +31,8 @@
         <span class="text-mobile">
             <div class="d-flex pa-3">
                 <span>
-                    <strong> Carlos Esteban Corral Esparza  </strong> <br>
-                    Grupo: 1 - A
+                    <strong> {{ alumno.name }}  </strong> <br>
+                    Grupo: 1 - A  ID: {{ alumno.id }}
                 </span>
             </div>
         </span>
@@ -40,19 +40,29 @@
 </template>
 
 <script>
-    export default {
-        methods: {
-            openEdit() {
-                this.$emit('editar', true );    
-            },
-            openDelete() {
-                this.$emit('borrar', true );    
-            },
-            openAdd() {
-                this.$emit('agregar', true );    
-            }
+import { mapGetters } from "vuex";
+
+export default {
+    computed: {
+        ...mapGetters("alumno", [
+            "getAlumno",
+        ]),
+        alumno(){
+            return this.getAlumno
+        }  
+    },
+    methods: {
+        openEdit() {
+            this.$emit('editar', true );    
         },
-    }
+        openDelete() {
+            this.$emit('borrar', true );    
+        },
+        openAdd() {
+            this.$emit('agregar', true );    
+        }
+    },
+}
 </script>
 
 <style scoped>
