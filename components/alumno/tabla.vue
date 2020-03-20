@@ -12,7 +12,7 @@
             <v-col align-self="end" justify-self="end" class="px-0 py-1" cols="12" sm="12" md="6">
                 <div class="d-flex justify-end">
                     <v-btn color="success" @click="modal_agregar = true">
-                        Agregar guardian
+                        Agregar alumno
                     </v-btn>
                 </div>
             </v-col>
@@ -25,7 +25,7 @@
             <v-card class="custom-card" color="azul">
                 <v-system-bar class="azul pa-4 system-bar">
                 <v-icon class="white--text mr-4">mdi-table-large</v-icon>
-                <span class="white--text">Usuarios</span>
+                <span class="white--text">Alumnos</span>
                 </v-system-bar>
                 <div class="table-headers">
                     <div class="custom-table-header flex-basis-5">

@@ -41,7 +41,7 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="red darken-1" text @click="show = false">Cancelar</v-btn>
-              <v-btn color="green darken-1" text @click="editar">Agregar</v-btn>
+              <v-btn color="green darken-1" text @click="editar">Actualizar</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
