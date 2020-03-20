@@ -7,8 +7,8 @@
         <h1>Administrador</h1>
         <v-container fluid class="pa-0">
             <v-row no-gutters>
-                <v-col class="pa-1" cols="12" v-for="(item, index) in 20" :key="index">
-                    <CardEscuela/>
+                <v-col class="pa-1" cols="12" v-for="( escuela, index ) in escuelas" :key="index">
+                    <CardEscuela :escuela="escuela"/>
                 </v-col>
             </v-row>
         </v-container>
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 // Components
 import CardEscuela from "~/components/administrador/card_escuela.vue";
 import Snackbar from "~/components/ui/snackbar.vue";
@@ -29,7 +30,16 @@ export default {
         snackbar: { color: 'red', timeout: 3000, state: false, text: '' },
         LatLng: null,
     }),
+    computed: {
+        ...mapGetters("escuela", [
+            "getEscuelas",
+        ]),
+        escuelas(){
+            return this.getEscuelas
+        }  
+    },
     created () {
+
         // Obtener LatLng
         // if ( "geolocation" in navigator ) {
         //    return this.snackbar = { color: 'orange', timeout: 3000, state: true , text: 'No se pudo obtener las coordenadas' }

@@ -21,8 +21,8 @@
                         <div class="d-flex align-center justify-center">
                             <v-list-item>
                                 <v-list-item-content class="sm-ctn">
-                                    <v-list-item-title class="text-right title"><strong>Director:</strong> Director Saul Meza </v-list-item-title>
-                                    <v-list-item-subtitle class="text-right"><strong>Email:</strong> director@hotmail.com</v-list-item-subtitle>
+                                    <v-list-item-title class="text-right title"><strong>Director:</strong> {{ escuela.name }} </v-list-item-title>
+                                    <v-list-item-subtitle class="text-right"><strong>Email:</strong> director@hotmail.com {{ escuela.id }} </v-list-item-subtitle>
                                 </v-list-item-content>
                             </v-list-item>
                         </div>
@@ -42,9 +42,9 @@
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {
+    props: ['escuela']
+}
 </script>
 
 <style scoped>
