@@ -44,7 +44,7 @@
               <v-btn color="orange darken-1" text @click="show = false">Cerrar</v-btn>
               <v-spacer></v-spacer>
               <v-btn color="red darken-1" text @click="borrar">Borrar</v-btn>
-              <v-btn color="green darken-1" text>Actualizar</v-btn>
+              <v-btn color="green darken-1" text @click="editar">Actualizar</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -86,6 +86,11 @@ export default {
   methods: {
     borrar() {
       this.$emit('borrar', true );
+    },
+    editar(){
+       const tutor = { id: this.id, name: this.name }
+       this.$store.commit('tutor/edit', tutor );
+       this.show = false;
     }
   },
 }

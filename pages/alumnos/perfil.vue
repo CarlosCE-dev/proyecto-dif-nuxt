@@ -8,8 +8,8 @@
 
         <!-- Header -->
         <Header @agregar="modal_agregar = !modal_agregar"
-                @editar="modal_editar = !modal_editar"
-                @borrar="modal_borrar = !modal_borrar"
+                @editar="editar"
+                @borrar="borrar"
         />
 
         <Tutores/>
@@ -24,10 +24,10 @@ import { mapGetters } from "vuex";
 import Header from "~/components/alumno_perfil/header.vue";
 
 import Tutores from "~/components/tutor/tutores.vue";
-import ModalAgregar from "~/components/tutor/modal_agregar.vue";
 
-import ModalEditar from "~/components/alumno_perfil/editar_modal.vue";
-import ModalBorrar from "~/components/alumno_perfil/borrar_modal.vue";
+import ModalAgregar from "~/components/tutor/modal_agregar.vue";
+import ModalEditar from "~/components/alumno_perfil/modal_editar.vue";
+import ModalBorrar from "~/components/alumno_perfil/modal_borrar.vue";
     
 export default {
     components: {
@@ -52,10 +52,20 @@ export default {
         }  
     },
     created(){
-        if ( Object.keys(this.alumno).length === 0 ){ 
-            this.$router.push({ path: '/alumnos/' });
+        if ( Object.keys( this.alumno ).length === 0 ){ 
+          this.$router.push({ path: '/alumnos/' });
         }
-    }
+    },
+    methods: {
+        editar() {
+            this.$store.commit('alumno/set', this.alumno );
+            this.modal_editar = true;
+        },
+        borrar(){
+            this.$store.commit('alumno/set', this.alumno );
+            this.modal_borrar = true;
+        },
+    },
 }
 </script>
 

@@ -48,13 +48,11 @@ export default {
             this.modal_tutor = true;
         },
         borrar( boolean ){
-            console.log(boolean);
-            
             this.modal_borrar = true;
         },
         borrado( boolean ){
             this.modal_tutor = false;
-        }
+        },
     },
 }
 </script>
