@@ -10,7 +10,7 @@
               <v-container>
                 <v-row>
                   <v-col cols="12" sm="6" md="4">
-                    <v-text-field label="Legal first name*" required></v-text-field>
+                    <v-text-field label="Legal first name*" required v-model="name"></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
                     <v-text-field label="Legal middle name" hint="example of helper text only on focus"></v-text-field>
@@ -41,7 +41,7 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="red darken-1" text @click="show = false">Cancelar</v-btn>
-              <v-btn color="green darken-1" text @click="show = false">Agregar</v-btn>
+              <v-btn color="green darken-1" text @click="editar">Agregar</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -50,19 +50,46 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+ 
 export default ({
     props: ['value'],
+    data: () => ({
+        id: '',
+        name: '',
+    }),
     computed: {
-        show: {
-            get () {
-            //@ts-ignore
+      show: {
+          get () {
             return this.value;
-            },
-            set (value) {
-            //@ts-ignore
+          },
+          set (value) {
             this.$emit('input', value)
-            }
-        }
+          }
+      },
+      ...mapGetters("alumno", [
+          "getAlumno",
+      ]),
+      alumno(){
+        return this.getAlumno
+      }  
+    },
+    created() {
+      this.id = this.getAlumno.id;
+      this.name = this.getAlumno.name;
+    },
+    watch: {
+      alumno ( alumno ) {
+          this.id = alumno.id;
+          this.name = alumno.name;
+      },
+    },
+    methods: {
+      editar() {
+        const alumno = { name: this.name, id: this.id };
+        this.$store.commit('alumno/edit',  alumno ); 
+        this.show = false;
+      }
     },  
 });
 </script>
