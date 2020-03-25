@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-snackbar v-model="show" :timeout="snackbar.timeout" :color="snackbar.color">
+        <v-snackbar v-model="show" :timeout="snackbar.timeout" :color="snackbar.color" :top="snackbar.top">
                 {{ snackbar.text }}
             <v-btn color="white" text @click="show = false">
                 Close

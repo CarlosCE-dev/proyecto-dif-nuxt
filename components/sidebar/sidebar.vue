@@ -10,7 +10,7 @@
             <v-list-item class="sm-box">
                 <v-list-item-content class="sm-ctn">
                     <v-list-item-title class="text-right font-weight-bold title">Fernado Felix</v-list-item-title>
-                    <v-list-item-subtitle  class="text-right">Super admin</v-list-item-subtitle>
+                    <v-list-item-subtitle  class="text-right">Director</v-list-item-subtitle>
                 </v-list-item-content>
                 <v-list-item-avatar>
                     <v-img src="https://cdn.vuetifyjs.com/images/lists/2.jpg"></v-img>

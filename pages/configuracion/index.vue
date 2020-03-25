@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 // Componentes
 import FotoPerfil from "~/components/configuracion/foto_perfil.vue";
 import Suscripcion from "~/components/configuracion/suscripcion.vue";
@@ -29,6 +30,17 @@ export default {
         FotoPerfil,
         Suscripcion,
         FormEscuela
+    },
+    computed: {
+        ...mapGetters("escuela", [
+            "getEscuela",
+        ]),
+        escuela(){
+            return this.getEscuela
+        }  
+    },
+    created(){
+        this.$store.commit('escuela/find', 1 );
     }
 }
 </script>

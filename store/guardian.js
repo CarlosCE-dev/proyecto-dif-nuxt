@@ -1,8 +1,7 @@
-
-
+import { Guardian } from '~/models/guardian.js';
 
 export const state = () => ({
-    guardianes: [ { id: Math.random().toString(36).substring(7), name: Math.random().toString(36).substring(7) } ],
+    guardianes: [],
     guardian: {}
 });
 
@@ -10,15 +9,21 @@ export const mutations = {
     add( state, payload ){
         state.guardianes.push( payload );
     },
-    remove( state, id ){
-        state.guardianes = state.guardianes.filter( s => s.id !== id )
+    remove( state, userId ){
+        state.guardianes = state.guardianes.filter( g => g.userId !== userId )
     },
     edit( state, payload ){
-        const guardian = state.guardianes.find( g => g.id === payload.id );
-        guardian.name = payload.name;
+        const index = state.guardianes.findIndex(  g => g.userId === payload.userId );
+        state.guardianes[index] = payload;
     },
     set( state, payload ){
         state.guardian = payload;
+    },
+    load( state, payload ){
+        for (let i = 0; i < payload.length; i++) {
+            payload[i] = new Guardian( payload[i] );
+        }
+        state.guardianes = payload
     }
 }
 export const getters = {

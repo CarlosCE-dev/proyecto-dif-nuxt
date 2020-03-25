@@ -38,17 +38,27 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
     data: () => ({
         nombre: '',
         phone: '',
         email: '',
         valid: true,
-        image: [],
     }),
-    methods: {
-        
+    computed: {
+        ...mapGetters("escuela", [
+            "getEscuela",
+        ]),
+        escuela(){
+            return this.getEscuela
+        }  
     },
+    created(){
+        this.nombre = this.escuela.name
+        
+    }
 }
 </script>
 

@@ -1,8 +1,6 @@
-import createRepository from '~/api/adonis'
+import catalogues from '~/api/catalogue';
 
 export default (ctx, inject) => {
-
-  const repositoryWithAxios = createRepository( ctx.$axios )
-  inject('guardianesApi', repositoryWithAxios('guardianes'));
- 
+  const repCatalogues = catalogues(ctx.$axios)
+  inject('cataloguesApi', repCatalogues('catalogues'));
 }

@@ -29,9 +29,7 @@
                 <span class="white--text">Usuarios</span>
                 </v-system-bar>
                 <div class="table-headers">
-                    <div class="custom-table-header flex-basis-5">
-                        <p>ID</p>
-                    </div>
+                    <div class="custom-table-header flex-basis-5"></div>
                     <div class="custom-table-header flex-basis-20">
                         <p>Name</p>
                     </div>
@@ -39,10 +37,7 @@
                         <p>Email</p>
                     </div>
                     <div class="custom-table-header flex-basis-10">
-                        <p>Phone</p>
-                    </div>
-                    <div class="custom-table-header flex-basis-10">
-                        <p>Role</p>
+                        <p>Profile</p>
                     </div>
                     <div class="custom-table-header flex-basis-20">
                         <p class="tab-header">Options</p>
@@ -59,11 +54,11 @@
 
                     <!-- Cell -->
                     <div class="custom-table-cell flex-basis-5">
-                        <span class="mobile-column-name">
-                            ID
-                        </span>
+                        <span class="mobile-column-name"></span>
                         <div class="center-wrapper">
-                            <span class="column-text"> {{ guardian.id }} </span>
+                            <span class="column-text"> 
+                                <v-avatar size="38"><img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John"></v-avatar>
+                            </span>
                         </div>
                     </div>
                     <!-- Cell -->
@@ -74,7 +69,10 @@
                             Name
                         </span>
                         <div class="center-wrapper">
-                            <span class="column-text"> {{ guardian.name }}</span>
+                            <span class="column-text">
+                                <v-icon x-small :color="guardian.active ? 'green' : 'red'" class="mr-2">mdi-circle</v-icon>
+                                {{ guardian.firstName }} {{ guardian.lastName }} {{ guardian.secondLastName }} 
+                            </span>
                         </div>
                     </div>
                     <!-- Cell -->
@@ -85,33 +83,22 @@
                             Email
                         </span>
                         <div class="center-wrapper">
-                            <span class="column-text">Email</span>
-                        </div>
-                    </div>
-                    <!-- Cell -->
-
-                    <!-- Cell -->
-                    <div class="custom-table-cell flex-basis-10">
-                        <span class="mobile-column-name">
-                            Phone
-                        </span>
-                        <div class="center-wrapper">
-                            <span class="column-text">Email</span>
-                        </div>
-                    </div>
-                    <!-- Cell -->
-
-                    <!-- Cell -->
-                    <div class="custom-table-cell flex-basis-10">
-                        <span class="mobile-column-name">
-                            Role
-                        </span>
-                        <div class="center-wrapper">
-                            <span class="column-text">Email</span>
+                            <span class="column-text">{{ guardian.email }}</span>
                         </div>
                     </div>
                     <!-- Cell -->
                     
+                    <!-- Cell -->
+                    <div class="custom-table-cell flex-basis-10">
+                        <span class="mobile-column-name">
+                            Profile
+                        </span>
+                        <div class="center-wrapper">
+                            <span class="column-text">{{ guardian.profileId }}</span>
+                        </div>
+                    </div>
+                    <!-- Cell -->
+
                     <!-- Cell -->
                     <div class="custom-table-cell flex-basis-10  action-cell">
                         <div class="center-wrapper pa-1">
@@ -140,6 +127,7 @@
 </template>
 
 <script>
+
 import { mapGetters } from "vuex";
 // Components
 import ModalAgregar from '~/components/guardian/modal_agregar.vue';
@@ -168,7 +156,7 @@ export default ({
     }, 
     methods: {
         borrar( guardian ) {  
-            this.$store.commit('guardian/set', guardian ); 
+            this.$store.commit('guardian/set', guardian.userId ); 
             this.modal_borrar = true;
         },
         editar( guardian ) {

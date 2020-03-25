@@ -1,19 +1,18 @@
-// import CanProfile from '~/classes/roles';
-
-// const canProfile = new CanProfile ();
+import { Profile } from '~/models/profile.js';
 
 export const state = () => ({
-    user: {}
+    profiles: [],
 });
 
 export const mutations = {
-    asignarRoles( state, payload ){
-        // const profile = canProfile.asignarRole( payload );
-        state.user = payload;
-        state.user.profile = profile;
+    load( state, payload ){
+        for (let i = 0; i < payload.length; i++) {
+            payload[i] = new Profile( payload[i] );
+        }
+        state.profiles = payload;
     }
 }
 
-export const actions = {
-
+export const getters = {
+    getProfiles: ( state ) => state.profiles,
 }

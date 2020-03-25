@@ -1,6 +1,6 @@
 export default function ({ $axios, redirect, request }) {
     $axios.onRequest(config => {
-      config.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}` 
+      // config.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}` 
       console.log('Making request to ' + config.url)
     })
   

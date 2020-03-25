@@ -2,7 +2,7 @@
     <div>
 
         <!-- UiComponents -->
-        <Snackbar v-model="snackbar.state" :snackbar="snackbar"/>
+        <ModalSnackbar v-model="modal_snackbar.state" :snackbar="modal_snackbar"/>
 
         <h1>Administrador</h1>
         <v-container fluid class="pa-0">
@@ -19,15 +19,15 @@
 import { mapGetters } from "vuex";
 // Components
 import CardEscuela from "~/components/administrador/card_escuela.vue";
-import Snackbar from "~/components/ui/snackbar.vue";
+import ModalSnackbar from "~/components/ui/snackbar.vue";
 
 export default {
     components: {
         CardEscuela,
-        Snackbar
+        ModalSnackbar
     },
     data: () => ({
-        snackbar: { color: 'red', timeout: 3000, state: false, text: '' },
+        modal_snackbar: { color: 'red', timeout: 3000, state: false, text: '' },
         LatLng: null,
     }),
     computed: {

@@ -1,15 +1,19 @@
 <template>
   <v-app dark>
     
+
     <Sidebar v-model="drawer" :fixed="fixed" :items="items"/>
 
     <Appbar @action="drawerController"/>
 
     <v-content class="main-content custom-scroll">
       
-       <v-card color="fondo" height="100%" class="px-2 mx-4 fondo-tarjeta" elevation="0">
+      <ModalSnackbar v-model="modal_snackbar.state" :snackbar="modal_snackbar"/>
+      <ModalLoader v-model="loader"/>
+      
+      <v-card color="fondo" height="100%" class="px-2 mx-4 fondo-tarjeta" elevation="0">
         <nuxt />
-       </v-card>
+      </v-card>
        
     </v-content>
 
@@ -17,16 +21,24 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 // Helpers
 import { orientationType } from '~/helpers/orientation';
 // Components
 import Sidebar from "~/components/sidebar/sidebar.vue";
 import Appbar from "~/components/appbar/appbar.vue";
 
+// Ui Components 
+import ModalLoader from '~/components/ui/loader.vue';
+import ModalSnackbar from '~/components/ui/snackbar.vue';
+
 export default ({
     components: {
       Sidebar,
-      Appbar
+      Appbar,
+      ModalLoader,
+      ModalSnackbar
     },
     data: () => ({
         mobil: false,
@@ -39,8 +51,26 @@ export default ({
         { name: 'Reportes',  route: "/", icon: 'mdi-poll-box' }, 
         { name: 'Configuración',  route: "/configuracion", icon: 'mdi-cog' },
         { name: 'Administrador',  route: "/administrador", icon: 'mdi-tools' },  
-        ]
+        ],
+        modal_snackbar: false
     }),
+    computed: {
+      ...mapGetters("ui", [
+          "getLoader",
+          "getSnackbar"
+      ]),
+      loader(){
+          return this.getLoader
+      }, 
+      snackbar(){
+        return this.getSnackbar
+      }
+    },
+    watch: {
+      snackbar( sb ){
+        this.modal_snackbar = { color: sb.color, timeout: sb.timeout, state: sb.state, text: sb.text , top: sb.top };
+      }
+    },
     beforeMount () {
         this.mobil = orientationType();
         this.$store.commit('window/isMobil', this.mobil); 

@@ -11,6 +11,11 @@ import Tabla from '~/components/alumno/tabla.vue';
 export default {
     components: {
         Tabla
+    },
+    created(){
+        const alumno = { firstName: 'Mario', lastName: 'Angelica', secondLastName: 'Pasd' }
+        const temp = [ alumno,alumno ]
+        this.$store.commit('alumno/load', temp ); 
     }
 }
 </script>

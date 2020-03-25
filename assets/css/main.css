@@ -208,3 +208,7 @@
         display: none;
     }
 }
+
+.radio-group{
+    margin-top: 0px !important;
+}

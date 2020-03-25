@@ -28,5 +28,6 @@ export default $axios => resource => ({
 
   delete(id) {
     return $axios.$delete(`${ URL }${ resource }/${id}`, headers);
-  }
+  },
+
 });

@@ -29,6 +29,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/api',
+    '~/plugins/axios'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -53,6 +55,9 @@ export default {
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
   */
+  env: {
+    url: process.env.url || 'http://192.168.0.12:2020/'
+  },
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {

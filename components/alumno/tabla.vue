@@ -28,20 +28,18 @@
                 <span class="white--text">Alumnos</span>
                 </v-system-bar>
                 <div class="table-headers">
+                    <div class="custom-table-header flex-basis-5"></div>
                     <div class="custom-table-header flex-basis-5">
-                        <p>ID</p>
+                        <p>Card Folio</p>
                     </div>
                     <div class="custom-table-header flex-basis-20">
                         <p>Name</p>
                     </div>
                     <div class="custom-table-header flex-basis-20">
-                        <p>Email</p>
+                        <p>Institute</p>
                     </div>
                     <div class="custom-table-header flex-basis-10">
-                        <p>Phone</p>
-                    </div>
-                    <div class="custom-table-header flex-basis-10">
-                        <p>Role</p>
+                        <p>Gender</p>
                     </div>
                     <div class="custom-table-header flex-basis-20">
                         <p class="tab-header">Options</p>
@@ -59,10 +57,23 @@
                     <!-- Cell -->
                     <div class="custom-table-cell flex-basis-5">
                         <span class="mobile-column-name">
-                            ID
+                            
                         </span>
                         <div class="center-wrapper">
-                            <span class="column-text">{{ alumno.id }}</span>
+                            <span class="column-text"> 
+                                <v-avatar size="38"><img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John"></v-avatar>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- Cell -->
+
+                    <!-- Cell -->
+                    <div class="custom-table-cell flex-basis-5">
+                        <span class="mobile-column-name">
+                            Card Folio
+                        </span>
+                        <div class="center-wrapper">
+                            <span class="column-text">{{ alumno.cardFolio }}</span>
                         </div>
                     </div>
                     <!-- Cell -->
@@ -73,40 +84,32 @@
                             Name
                         </span>
                         <div class="center-wrapper">
-                            <span class="column-text">{{ alumno.name }}</span>
+                            <span class="column-text">
+                                <v-icon x-small :color="guardian.active ? 'green' : 'red'" class="mr-2">mdi-circle</v-icon>
+                                {{ alumno.firstName }} {{ alumno.lastName }} {{ alumno.secondLastName }}
+                            </span>
                         </div>
                     </div>
                     <!-- Cell -->
 
-                    <!-- Cell -->
+                   <!-- Cell -->
                     <div class="custom-table-cell flex-basis-20">
                         <span class="mobile-column-name">
-                            Email
+                            Institute
                         </span>
                         <div class="center-wrapper">
-                            <span class="column-text">Email</span>
+                            <span class="column-text">{{ alumno.instituteId }}</span>
                         </div>
                     </div>
                     <!-- Cell -->
-
+                    
                     <!-- Cell -->
                     <div class="custom-table-cell flex-basis-10">
                         <span class="mobile-column-name">
-                            Phone
+                            Gender
                         </span>
                         <div class="center-wrapper">
-                            <span class="column-text">Email</span>
-                        </div>
-                    </div>
-                    <!-- Cell -->
-
-                    <!-- Cell -->
-                    <div class="custom-table-cell flex-basis-10">
-                        <span class="mobile-column-name">
-                            Role
-                        </span>
-                        <div class="center-wrapper">
-                            <span class="column-text">Email</span>
+                            <span class="column-text">{{ alumno.gender }}</span>
                         </div>
                     </div>
                     <!-- Cell -->

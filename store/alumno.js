@@ -1,5 +1,7 @@
+import { Student } from '~/models/student.js';
+
 export const state = () => ({
-    alumnos: [ { id: Math.random().toString(36).substring(7), name: Math.random().toString(36).substring(7) } ],
+    alumnos: [],
     alumno: {}
 });
 
@@ -16,6 +18,12 @@ export const mutations = {
     },
     set( state, payload ){
         state.alumno = payload;
+    },
+    load( state, payload ){
+        for (let i = 0; i < payload.length; i++) {
+            payload[i] = new Student( payload[i] );
+        }
+        state.alumnos = payload;
     }
 }
 
