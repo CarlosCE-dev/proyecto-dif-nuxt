@@ -1,12 +1,12 @@
 <template>
     <div>
 
-      <v-row justify="center">
+      <!-- <v-row justify="center">
         <v-dialog v-model="show" persistent max-width="600px">
           <v-card>
              <v-card-title class="pa-2 azul">
                 <v-icon color="white" class="pr-1">mdi-account</v-icon>
-                <span class="headline white--text">{{ tutor.name }}</span>
+                <span class="headline white--text">{{ tutor.firstName }}</span>
             </v-card-title>
             <v-card-text>
               <v-container>
@@ -48,7 +48,7 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
-      </v-row>
+      </v-row> -->
     </div>
 </template>
 

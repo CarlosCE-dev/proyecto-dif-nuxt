@@ -37,7 +37,7 @@ export default ({
   }, 
   methods: {
     eliminar() {
-      this.$store.commit('galumno/remove', this.alumno.id ); 
+      this.$store.commit('alumno/remove', this.alumno.studentId ); 
       this.show = false;
     }
   }, 

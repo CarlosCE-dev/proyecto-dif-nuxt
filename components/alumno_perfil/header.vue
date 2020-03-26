@@ -19,7 +19,8 @@
             </span>
             <span class="w60 d-flex align-start">
                 <div class="text">
-                    {{ alumno.name }} <br> Grupo: 1 - A  {{ alumno.id }}
+                    {{ alumno.firstName }} {{ alumno.lastName }} {{ alumno.secondLastName }} 
+                    <br> Grupo: 1 - A  {{ alumno.studentId }}
                 </div>
             </span>
             <span class="pr-3">
@@ -31,8 +32,8 @@
         <span class="text-mobile">
             <div class="d-flex pa-3">
                 <span>
-                    <strong> {{ alumno.name }}  </strong> <br>
-                    Grupo: 1 - A  ID: {{ alumno.id }}
+                    <strong> {{ alumno.firstName }} {{ alumno.lastName }} {{ alumno.secondLastName }} </strong> <br>
+                    Grupo: 1 - A  ID: {{ alumno.studentId }}
                 </span>
             </div>
         </span>
@@ -53,13 +54,13 @@ export default {
     },
     methods: {
         openEdit() {
-            this.$emit('editar', true );    
+            this.$emit('editar');    
         },
         openDelete() {
-            this.$emit('borrar', true );    
+            this.$emit('borrar');    
         },
         openAdd() {
-            this.$emit('agregar', true );    
+            this.$emit('agregar');    
         }
     },
 }

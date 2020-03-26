@@ -19,7 +19,7 @@ function random () {
         this.relationship = advisor.relationship || random();
         this.address = advisor.address || random();
         this.photo = advisor.photo ||  random();
-        this.fcm_token = advisor.fcm_token || random();
+        this.fcmToken = advisor.fcmToken || random();
         this.active = advisor.active || false;
         this.comments = advisor.comments || random();;
       }

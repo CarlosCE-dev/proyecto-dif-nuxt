@@ -102,7 +102,7 @@
 import { mapGetters } from "vuex";
 
 // Helpers
-import { required, email, item } from '~/helpers/rules_validate';
+import { required, email, genero } from '~/helpers/rules_validate';
 
 // Models
 import { Guardian } from '~/models/guardian.js';
@@ -118,9 +118,7 @@ export default ({
       valid: true,
       guardian: new Guardian(),
       modal_datepicker: false,
-      modal_loader: false,
-      modal_snackbar: { color: 'red', timeout: 3000, state: false, text: '', top: true },
-      genero: ['Masculino','Femenino'],
+      genero: genero(),
       requiredRule: required(),
       emailRule: email(),
   }),
@@ -161,9 +159,6 @@ export default ({
     },
     editar() {
       
-      console.log(this.guardian);
-      
-
       if ( !this.$refs.form.validate() ) {
         const snackbar = { color: 'orange', timeout: 3000, state: true , text: 'Porfavor de rellenar todos los campos requeridos', top: true };
         return this.$store.commit('ui/snackbar', snackbar );

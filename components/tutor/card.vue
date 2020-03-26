@@ -7,13 +7,13 @@
                 </v-list-item-avatar>
                 <v-list-item-content class="sm-ctn">
                     <v-list-item-title class=" font-weight-bold text-wrap text-mobile">
-                        {{ tutor.name }}
+                        {{ tutor.firstName }}
                     </v-list-item-title>
                     <v-list-item-subtitle> 
                         <strong> Parentecso </strong>
                     </v-list-item-subtitle>
                     <v-list-item-subtitle  class="black--text text-wrap">
-                        Dirección: Calle Independencia #24 {{ tutor.id }}
+                        Dirección: Calle Independencia #24 {{ tutor.advisorId }}
                     </v-list-item-subtitle>
                 </v-list-item-content>
                 <v-list-item-action>

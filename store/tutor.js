@@ -1,5 +1,7 @@
+import { Advisor } from '~/models/advisor.js';
+
 export const state = () => ({
-    tutores: [ { id: Math.random().toString(36).substring(7), name: Math.random().toString(36).substring(7) } ],
+    tutores: [],
     tutor: {}
 });
 
@@ -16,6 +18,12 @@ export const mutations = {
     },
     set( state, payload ){
         state.tutor = payload;
+    },
+    load( state, payload ){
+        for (let i = 0; i < payload.length; i++) {
+            payload[i] = new Advisor( payload[i] );
+        }
+        state.tutores = payload
     }
 }
 

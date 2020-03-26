@@ -43,7 +43,6 @@ export default {
     },
     methods: {
         ajustes( tutor ) {
-            console.log(tutor);
             this.$store.commit('tutor/set', tutor );
             this.modal_tutor = true;
         },

@@ -8,3 +8,8 @@ export function email(){
         v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
     ]
 }
+
+
+export function genero(){
+    return ['Masculino','Femenino']
+}

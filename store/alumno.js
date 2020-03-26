@@ -9,13 +9,14 @@ export const mutations = {
     add( state, payload ){
         state.alumnos.push( payload );
     },
-    remove( state, id ){
-        state.alumnos = state.alumnos.filter( a => a.id !== id )
+    remove( state, studentId ){
+        state.alumnos = state.alumnos.filter( a => a.studentId !== studentId )
     },
     edit( state, payload ){
-        const alumno = state.alumnos.find( a => a.id === payload.id );
-        alumno.name = payload.name;
-    },
+        const index = state.alumnos.findIndex( a => a.studentId === payload.studentId );
+        state.alumnos[index] = payload;
+        state.alumno = payload;
+    }, 
     set( state, payload ){
         state.alumno = payload;
     },
@@ -30,8 +31,4 @@ export const mutations = {
 export const getters = {
     getAlumnos: ( state ) => state.alumnos,
     getAlumno: ( state ) => state.alumno
-}
-
-export const actions = {
-
 }

@@ -21,7 +21,7 @@
                   <v-col cols="12" sm="6" md="4">
                     <v-text-field label="Apellido paterno*" 
                                   required 
-                                  v-model="guardian.secondName"
+                                  v-model="guardian.lastName"
                                   :rules="requiredRule">
                     </v-text-field>
                   </v-col>
@@ -30,13 +30,6 @@
                                   required 
                                   v-model="guardian.secondLastName"
                                   :rules="requiredRule">
-                    </v-text-field>
-                  </v-col>
-                  <v-col cols="12" sm="6" md="9">
-                    <v-text-field label="Email*" 
-                                  required 
-                                  v-model="guardian.email"
-                                  :rules="emailRule">
                     </v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="3">
@@ -102,7 +95,7 @@
 import { mapGetters } from "vuex";
 
 // Helpers
-import { required, email, item } from '~/helpers/rules_validate';
+import { required, email, genero } from '~/helpers/rules_validate';
 
 // Models
 import { Guardian } from '~/models/guardian.js';
@@ -120,9 +113,7 @@ export default ({
       valid: true,
       guardian: new Guardian(),
       modal_datepicker: false,
-      modal_loader: false,
-      modal_snackbar: { color: 'red', timeout: 3000, state: false, text: '', top: true },
-      genero: ['Masculino','Femenino'],
+      genero: genero(),
       requiredRule: required(),
       emailRule: email(),
     }),
@@ -160,7 +151,11 @@ export default ({
         
         this.$store.commit('guardian/add', this.guardian );
         this.$store.commit('ui/loader', false );
+        
         this.show = false; 
+
+        this.guardian = new Guardian();
+        this.$refs.form.resetValidation();
       },
       date( date ){
         this.guardian.birthdate = date;

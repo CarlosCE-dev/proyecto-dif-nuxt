@@ -29,7 +29,7 @@
                 </v-system-bar>
                 <div class="table-headers">
                     <div class="custom-table-header flex-basis-5"></div>
-                    <div class="custom-table-header flex-basis-5">
+                    <div class="custom-table-header flex-basis-10">
                         <p>Card Folio</p>
                     </div>
                     <div class="custom-table-header flex-basis-20">
@@ -68,12 +68,12 @@
                     <!-- Cell -->
 
                     <!-- Cell -->
-                    <div class="custom-table-cell flex-basis-5">
+                    <div class="custom-table-cell flex-basis-10">
                         <span class="mobile-column-name">
                             Card Folio
                         </span>
                         <div class="center-wrapper">
-                            <span class="column-text">{{ alumno.cardFolio }}</span>
+                            <span class="column-text">{{ alumno.studentCardFolio }}</span>
                         </div>
                     </div>
                     <!-- Cell -->
@@ -85,7 +85,7 @@
                         </span>
                         <div class="center-wrapper">
                             <span class="column-text">
-                                <v-icon x-small :color="guardian.active ? 'green' : 'red'" class="mr-2">mdi-circle</v-icon>
+                                <v-icon x-small :color="alumno.active ? 'green' : 'red'" class="mr-2">mdi-circle</v-icon>
                                 {{ alumno.firstName }} {{ alumno.lastName }} {{ alumno.secondLastName }}
                             </span>
                         </div>

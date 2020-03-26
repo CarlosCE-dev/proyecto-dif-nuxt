@@ -2,46 +2,116 @@
     <div>
       <v-row justify="center">
         <v-dialog v-model="show" persistent max-width="600px">
+
           <v-card>
             <v-card-title>
-              <span class="headline">Agregar nuevo tutor</span>
+              <span class="headline">Agregar un nuevo tutor</span>
             </v-card-title>
+            <v-form ref="form" v-model="valid" lazy-validation>
             <v-card-text>
               <v-container>
-                <v-row>
+                <v-row align="center">
                   <v-col cols="12" sm="6" md="4">
-                    <v-text-field label="Legal first name*" required></v-text-field>
+                    <v-text-field label="Nombre*" 
+                                  required 
+                                  v-model="tutor.firstName"
+                                  :rules="requiredRule">
+                    </v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
-                    <v-text-field label="Legal middle name" hint="example of helper text only on focus"></v-text-field>
+                    <v-text-field label="Apellido paterno*" 
+                                  required 
+                                  v-model="tutor.lastName"
+                                  :rules="requiredRule">
+                    </v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
-                    <v-text-field label="Legal last name*" hint="example of persistent helper text" persistent-hint required></v-text-field>
+                    <v-text-field label="Apellido materno*" 
+                                  required 
+                                  v-model="tutor.secondLastName"
+                                  :rules="requiredRule">
+                    </v-text-field>
                   </v-col>
-                  <v-col cols="12">
-                    <v-text-field label="Email*" required></v-text-field>
+                  <v-col cols="12" sm="6" md="4">
+                    <v-text-field label="Username*" 
+                                  required 
+                                  v-model="tutor.username"
+                                  :rules="requiredRule">
+                    </v-text-field>
                   </v-col>
-                  <v-col cols="12">
-                    <v-text-field label="Password*" type="password" required></v-text-field>
+                  <v-col cols="12" sm="6" md="3">
+                    <v-checkbox v-model="tutor.active"
+                                required 
+                                label="Active*">
+                    </v-checkbox>
                   </v-col>
-                  <v-col cols="12" sm="6">
-                    <v-select
-                      :items="['0-17', '18-29', '30-54', '54+']"
-                      label="Age*"
-                      required
+                  <v-col cols="12" sm="6" md="6">
+                    <v-text-field v-model="tutor.birthdate"
+                                  label="Birthdate*"
+                                  prepend-icon="mdi-calendar"
+                                  readonly
+                                  :rules="requiredRule"
+                                  @click="modal_datepicker = true"
+                    ></v-text-field>
+                    <ModalDatePicker v-model="modal_datepicker" @date="date"/>
+                  </v-col>
+                  <v-col cols="12" sm="6" md="6">
+                    <v-text-field label="Numero de celular*" 
+                                  required 
+                                  :rules="requiredRule"
+                                  v-model="tutor.phoneNumber">
+                    </v-text-field>
+                  </v-col>
+                  <v-col cols="12" sm="6" md="6">
+                    Genero*
+                    <v-radio-group v-model="tutor.gender" 
+                                  dense 
+                                  class="radio-group" 
+                                  required
+                                  :rules="radioRule()">
+                      <v-radio v-for="n in genero" :key="n" :label="`${n}`" :value="n"></v-radio>
+                    </v-radio-group>
+                  </v-col>
+                  <v-col cols="12" sm="6" md="6">
+                    <v-select v-model="tutor.profileId" 
+                              item-text="profileName" 
+                              item-value="profileId"
+                              :items="profiles"
+                              label="Profile*"
+                              :rules="itemRule()"
+                              required
                     ></v-select>
                   </v-col>
-                  <v-col cols="12" sm="6">
-                    <v-autocomplete :items="['Skiing', 'Ice hockey', 'Soccer', 'Basketball', 'Hockey', 'Reading', 'Writing', 'Coding', 'Basejump']" label="Interests" multiple></v-autocomplete>
+                  <v-col cols="12" sm="6" md="6">
+                    <v-text-field label="Relationship*" 
+                                  required 
+                                  v-model="tutor.secondLastName"
+                                  :rules="requiredRule">
+                    </v-text-field>
+                  </v-col>
+                  <v-col cols="12" sm="6" md="6">
+                    <v-text-field label="Dirección*" 
+                                  required 
+                                  v-model="tutor.address"
+                                  :rules="requiredRule">
+                    </v-text-field>
+                  </v-col>
+                  <v-col cols="12" sm="6" md="6">
+                    <v-text-field label="Comments*" 
+                                  required 
+                                  v-model="tutor.comments"
+                                  :rules="requiredRule">
+                    </v-text-field>
                   </v-col>
                 </v-row>
               </v-container>
-              <small>*indicates required field</small>
+              <small>*Indica los campos requeridos</small>
             </v-card-text>
+            </v-form>
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="red darken-1" text @click="show = false">Cancelar</v-btn>
-              <v-btn color="green darken-1" text @click="agregar">Agregar</v-btn>
+              <v-btn color="green darken-1" text :disabled="!valid" @click="agregar">Agregar</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -50,23 +120,70 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
+// Helpers
+import { required, genero } from '~/helpers/rules_validate';
+
+// Models
+import { Advisor } from '~/models/advisor.js';
+import { Profile } from '~/models/profile.js';
+
+// Components
+import ModalDatePicker from '~/components/ui/datepicker.vue';
+
 export default ({
     props: ['value'],
+    components: { ModalDatePicker },
+    date: () => ({
+      valid: true,
+      tutor: new Advisor(),
+      modal_datepicker: false,
+      genero: genero(),
+      requiredRule: required(),
+    }),
     computed: {
-        show: {
-            get () {
-            return this.value;
-            },
-            set (value) {
-            this.$emit('input', value)
-            }
+      show: {
+        get () {
+          return this.value;
+        },
+        set (value) {
+          this.$emit('input', value)
         }
+      },
+      ...mapGetters("profile", [
+        "getProfiles",
+      ]),
+      profiles(){
+        return this.getProfiles
+      }
     },  
     methods: {
+      itemRule(){
+        return [ this.tutor.profileId !== -1 || "At least one should be selected" ];
+      },
+      radioRule(){
+        return [ this.tutor.gender !== "" || "At least one should be selected" ];
+      },
+      date( date ){
+        this.tutor.birthdate = date;
+      },
       agregar() {
-        const tutor = { id: Math.random().toString(36).substring(7), name: Math.random().toString(36).substring(7) }
-        this.$store.commit('tutor/add', tutor ); 
-        this.show = false;
+
+        if ( !this.$refs.form.validate() ) {
+          const snackbar = { color: 'orange', timeout: 3000, state: true , text: 'Porfavor de rellenar todos los campos requeridos', top: true };
+          return this.$store.commit('ui/snackbar', snackbar );
+        }
+        
+        this.$store.commit('ui/loader', true );
+        
+        this.$store.commit('tutor/add', this.tutor );
+        this.$store.commit('ui/loader', false );
+        
+        this.show = false; 
+
+        this.tutor = new Advisor();
+        this.$refs.form.resetValidation();
       }
     },
 });

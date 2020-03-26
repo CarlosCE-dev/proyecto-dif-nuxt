@@ -14,10 +14,10 @@ export class Guardian {
       this.lastName = guardian.lastName || random();
       this.secondLastName = guardian.secondLastName || random();
       this.birthdate = guardian.birthdate || '12/12/1234';
-      this.gender = guardian.gender || 'Masculino';
+      this.gender = guardian.gender || '';
       this.phoneNumber = guardian.phoneNumber || random();
       this.photo = guardian.photo ||  random();
-      this.active = guardian.active || true;
+      this.active = guardian.active || false;
       this.profileId = guardian.profileId || 1;
     }
   }

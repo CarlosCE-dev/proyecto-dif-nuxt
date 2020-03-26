@@ -32,7 +32,9 @@ import ModalBorrar from "~/components/alumno_perfil/modal_borrar.vue";
 export default {
     components: {
         Header,
+        // Tutor
         ModalAgregar,
+        // Alumno
         ModalEditar,
         ModalBorrar,
         Tutores
@@ -41,7 +43,8 @@ export default {
         // Modales
         modal_agregar: false,
         modal_borrar: false,
-        modal_editar: false
+        modal_editar: false,
+        alumno_temp: {}
     }),
     computed: {
         ...mapGetters("alumno", [
@@ -55,10 +58,13 @@ export default {
         if ( Object.keys( this.alumno ).length === 0 ){ 
           this.$router.push({ path: '/alumnos/' });
         }
+        
     },
     methods: {
         editar() {
-            this.$store.commit('alumno/set', this.alumno );
+            this.alumno_temp = this.alumno;
+            this.$store.commit('alumno/set', {} );
+            this.$store.commit('alumno/set', this.alumno_temp );
             this.modal_editar = true;
         },
         borrar(){

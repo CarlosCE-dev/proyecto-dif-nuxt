@@ -156,7 +156,7 @@ export default ({
     }, 
     methods: {
         borrar( guardian ) {  
-            this.$store.commit('guardian/set', guardian.userId ); 
+            this.$store.commit('guardian/set', guardian ); 
             this.modal_borrar = true;
         },
         editar( guardian ) {
