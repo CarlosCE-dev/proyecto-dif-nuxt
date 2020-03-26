@@ -3,6 +3,7 @@
         <div class="bg-alumno">
             <span class="cuadrado azul">
                 <span class="circle"></span>
+                <span class="figura"></span>
             </span>
         </div>
         <div class="d-flex align-center justify-end pa-4">
@@ -23,8 +24,12 @@
                     <br> Grupo: 1 - A  {{ alumno.studentId }}
                 </div>
             </span>
-            <span class="pr-3">
-                <v-btn fab color="success" @click="openAdd">
+            <span class="pr-4">
+                <v-btn color="success" @click="openAdd" class="block-button">
+                    <v-icon left>mdi-plus</v-icon>
+                    Agregar tutor
+                </v-btn>
+                <v-btn fab color="success" @click="openAdd" class="round-button">
                     <v-icon x-large>mdi-plus</v-icon>
                 </v-btn>
             </span>
@@ -116,12 +121,36 @@ export default {
     left: 12px;
     bottom: -40px;
 }
-@media screen and (max-width: 603px){
+.figura{
+    background: #673AB7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #512DA8, #673AB7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #512DA8, #673AB7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 20px;
+    display: block;
+    background-color: white;
+    height: 500px;
+    width: 30%;
+    position: absolute;
+    top: 10px;
+    right: 5vh;
+}
+.round-button{
+    display: none;
+}
+@media screen and (max-width: 700px){
     .text{
         display: none;
     }
     .text-mobile{
         display: block;
+    }
+}
+@media screen and (max-width: 430px){
+    .round-button{
+        display: block;
+    }
+    .block-button{
+        display: none;
     }
 }
 </style>
