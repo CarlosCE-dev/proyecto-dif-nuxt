@@ -8,7 +8,7 @@
         <div class="d-flex align-center justify-end pa-4">
             <v-btn color="orange" dark @click="openEdit">Editar</v-btn>
             <span class="px-1"></span>
-            <v-btn color="red" @click="openDelete" dark>Borrar</v-btn>
+            <v-btn color="red" @click="openDelete" dark>Desactivar</v-btn>
         </div>
         <span class="spacer"></span>
         <div class="d-flex align-center">

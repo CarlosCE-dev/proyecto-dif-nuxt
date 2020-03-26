@@ -1,3 +1,11 @@
+.radio-group{
+    margin-top: 0px !important;
+}
+.advertencia{
+    border-radius: 8px;
+    padding: 6px;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                           Custom responsive table                          */
 /* -------------------------------------------------------------------------- */
@@ -152,63 +160,3 @@
 
 @media (max-width: 575.98px) {}
 
-/* -------------------------------------------------------------------------- */
-/*                                  Scrollbar                                 */
-/* -------------------------------------------------------------------------- */
-
-/* TODO: Cambiar el estilo en el scrollbar  */
-.scrollbar {
-    border-radius: 10px;
-    background-color: #F5F5F5;
-    float: left;
-    height: 60vh;
-    overflow-y: scroll;
-    width: 100%;
-
-   /*Estilos estándar experimentales (Principalmente Firefox)*/
-   scrollbar-color: rgba(0, 0, 0, .5) rgba(0, 0, 0, 0);
-   scrollbar-width: thin;
-}
-#style::-webkit-scrollbar {
-    -webkit-appearance: none;
-}
-
-#style::-webkit-scrollbar:vertical {
-    width:10px;
-}
-
-#style::-webkit-scrollbar-button:increment,#style::-webkit-scrollbar-button {
-    display: none;
-} 
-
-#style::-webkit-scrollbar:horizontal {
-    height: 10px;
-}
-
-#style::-webkit-scrollbar-thumb {
-    background-color: #797979;
-    border-radius: 20px;
-    border: 2px solid #f1f2f3;
-}
-
-#style::-webkit-scrollbar-track {
-    border-radius: 10px;  
-}
-@media screen and (max-width: 426px) {
-    .scrollbar {
-        height: 500px;
-    }
-    #style::-webkit-scrollbar-thumb{
-        display: none;
-    }
-    #style::-webkit-scrollbar{
-        display: none;
-    }
-    #style::-webkit-scrollbar{
-        display: none;
-    }
-}
-
-.radio-group{
-    margin-top: 0px !important;
-}
