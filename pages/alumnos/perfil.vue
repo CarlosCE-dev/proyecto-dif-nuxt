@@ -56,7 +56,7 @@ export default {
     },
     created(){
         if ( Object.keys( this.alumno ).length === 0 ){ 
-          this.$router.push({ path: '/alumnos/' });
+          this.$router.push({ path: '/alumnos' });
         }
         
     },

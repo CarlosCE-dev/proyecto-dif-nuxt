@@ -34,7 +34,7 @@
                   <v-col cols="12" sm="6" md="4">
                     <v-checkbox v-model="alumno.active"
                                 required 
-                                label="Active*">
+                                label="Active">
                     </v-checkbox>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">

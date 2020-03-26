@@ -1,19 +1,19 @@
 <template>
     <div>
-        <v-card color="verde">
+        <v-card :color="tutor.active ? 'verde' : 'rojo'">
            <v-list-item class="sm-box">
                 <v-list-item-avatar size="65" class="mobile">
                     <v-img src="https://cdn.vuetifyjs.com/images/lists/2.jpg"></v-img>
                 </v-list-item-avatar>
                 <v-list-item-content class="sm-ctn">
                     <v-list-item-title class=" font-weight-bold text-wrap text-mobile">
-                        {{ tutor.firstName }}
+                        {{ tutor.firstName }} {{ tutor.lastName }} {{ tutor.secondLastName }}
                     </v-list-item-title>
                     <v-list-item-subtitle> 
-                        <strong> Parentecso </strong>
+                        <strong> {{ tutor.relationship }} </strong>
                     </v-list-item-subtitle>
                     <v-list-item-subtitle  class="black--text text-wrap">
-                        Dirección: Calle Independencia #24 {{ tutor.advisorId }}
+                        {{ tutor.address }}
                     </v-list-item-subtitle>
                 </v-list-item-content>
                 <v-list-item-action>

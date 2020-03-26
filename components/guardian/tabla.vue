@@ -110,7 +110,7 @@
                      <!-- Cell -->
                     <div class="custom-table-cell flex-basis-10  action-cell">
                         <div class="center-wrapper pa-1">
-                            <v-btn small color="red" class="white--text" @click="borrar( guardian )"> Borrar </v-btn>
+                            <v-btn small color="red" class="white--text" @click="borrar( guardian )"> Desactivar </v-btn>
                         </div>
                     </div>
                      <!-- Cell -->

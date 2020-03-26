@@ -42,7 +42,7 @@
                   <v-col cols="12" sm="6" md="3">
                     <v-checkbox v-model="guardian.active"
                                 required 
-                                label="Active*">
+                                label="Active">
                     </v-checkbox>
                   </v-col>
                   <v-col cols="12" sm="6" md="6">

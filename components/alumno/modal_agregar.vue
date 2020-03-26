@@ -2,7 +2,6 @@
     <div>
       <v-row justify="center">
         <v-dialog v-model="show" persistent max-width="600px">
-
           <v-card>
             <v-card-title>
               <span class="headline">Agregar un nuevo alumno</span>
@@ -35,7 +34,7 @@
                   <v-col cols="12" sm="6" md="4">
                     <v-checkbox v-model="alumno.active"
                                 required 
-                                label="Active*">
+                                label="Active">
                     </v-checkbox>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
@@ -78,7 +77,7 @@
 import { mapGetters } from "vuex";
 
 // Helpers
-import { required, email, genero } from '~/helpers/rules_validate';
+import { required, genero } from '~/helpers/rules_validate';
 
 // Models
 import { Student } from '~/models/student.js';
@@ -96,7 +95,6 @@ export default ({
       genero: genero(),
       requiredRule: required(),
     }),
-    // TODO: Editar esto
     computed: {
       show: {
         get () {
@@ -112,7 +110,6 @@ export default ({
         return [ this.alumno.gender !== "" || "At least one should be selected" ];
       },
       agregar() {
-        
         if ( !this.$refs.form.validate() ) {
           const snackbar = { color: 'orange', timeout: 3000, state: true , text: 'Porfavor de rellenar todos los campos requeridos', top: true };
           return this.$store.commit('ui/snackbar', snackbar );

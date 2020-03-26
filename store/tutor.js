@@ -9,12 +9,12 @@ export const mutations = {
     add( state, payload ){
         state.tutores.push( payload );
     },
-    remove( state, id ){
-        state.tutores = state.tutores.filter( t => t.id !== id )
+    remove( state, advisorId ){
+        state.tutores = state.tutores.filter( t => t.advisorId !== advisorId )
     },
     edit( state, payload ){
-        const tutor = state.tutores.find(t => t.id === payload.id );
-        tutor.name = payload.name;
+        const index = state.tutores.findIndex(  t => t.advisorId === payload.advisorId );
+        state.tutores[index] = payload;
     },
     set( state, payload ){
         state.tutor = payload;

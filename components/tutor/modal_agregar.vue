@@ -39,10 +39,20 @@
                                   :rules="requiredRule">
                     </v-text-field>
                   </v-col>
-                  <v-col cols="12" sm="6" md="3">
+                  <v-col cols="12" sm="6" md="4">
+                    <v-select v-model="tutor.profileId" 
+                              item-text="profileName" 
+                              item-value="profileId"
+                              :items="profiles"
+                              label="Profile*"
+                              :rules="itemRule()"
+                              required
+                    ></v-select>
+                  </v-col>
+                  <v-col cols="12" sm="6" md="4">
                     <v-checkbox v-model="tutor.active"
                                 required 
-                                label="Active*">
+                                label="Active">
                     </v-checkbox>
                   </v-col>
                   <v-col cols="12" sm="6" md="6">
@@ -72,20 +82,11 @@
                       <v-radio v-for="n in genero" :key="n" :label="`${n}`" :value="n"></v-radio>
                     </v-radio-group>
                   </v-col>
-                  <v-col cols="12" sm="6" md="6">
-                    <v-select v-model="tutor.profileId" 
-                              item-text="profileName" 
-                              item-value="profileId"
-                              :items="profiles"
-                              label="Profile*"
-                              :rules="itemRule()"
-                              required
-                    ></v-select>
-                  </v-col>
+                  
                   <v-col cols="12" sm="6" md="6">
                     <v-text-field label="Relationship*" 
                                   required 
-                                  v-model="tutor.secondLastName"
+                                  v-model="tutor.relationship"
                                   :rules="requiredRule">
                     </v-text-field>
                   </v-col>
@@ -135,7 +136,7 @@ import ModalDatePicker from '~/components/ui/datepicker.vue';
 export default ({
     props: ['value'],
     components: { ModalDatePicker },
-    date: () => ({
+    data: () => ({
       valid: true,
       tutor: new Advisor(),
       modal_datepicker: false,
@@ -169,7 +170,6 @@ export default ({
         this.tutor.birthdate = date;
       },
       agregar() {
-
         if ( !this.$refs.form.validate() ) {
           const snackbar = { color: 'orange', timeout: 3000, state: true , text: 'Porfavor de rellenar todos los campos requeridos', top: true };
           return this.$store.commit('ui/snackbar', snackbar );
