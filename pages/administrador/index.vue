@@ -4,7 +4,12 @@
         <!-- UiComponents -->
         <ModalSnackbar v-model="modal_snackbar.state" :snackbar="modal_snackbar"/>
 
-        <h1>Administrador</h1>
+        <h1 class="pa-1">Administrador</h1>
+
+        <div class="d-flex justify-end pa-1">
+            <v-btn color="success" @click="crear"> Crear nuevo registro </v-btn>
+        </div>
+
         <v-container fluid class="pa-0">
             <v-row no-gutters>
                 <v-col class="pa-1" cols="12" v-for="( escuela, index ) in escuelas" :key="index">
@@ -37,6 +42,11 @@ export default {
         escuelas(){
             return this.getEscuelas
         }  
+    },
+    methods: {
+        crear() {
+            this.$router.push({ path: '/administrador/crear' });
+        }
     },
     created () {
 
