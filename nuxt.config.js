@@ -40,10 +40,11 @@ export default {
   ],
   /*
   ** Nuxt.js modules
-  */
+  */ 
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/svg'
   ],
   /*
   ** Axios module configuration
@@ -57,6 +58,10 @@ export default {
   */
   env: {
     url: process.env.url || 'http://192.168.0.12:2020/'
+  },
+  router: {
+    // trailingSlashes: true,
+    middleware: ['guard'],
   },
   vuetify: {
     customVariables: ['~/assets/variables.scss'],

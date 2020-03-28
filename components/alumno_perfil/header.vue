@@ -1,18 +1,17 @@
 <template>
     <div>
-        <div class="bg-alumno">
-            <span class="cuadrado azul">
-                <span class="circle"></span>
-                <span class="figura"></span>
-            </span>
-        </div>
-        <div class="d-flex align-center justify-end pa-4">
+        <!-- Fondo -->
+        <HeaderFondo/>
+
+        <div class="d-flex align-center justify-end pa-4 buttons">
             <v-btn color="orange" dark @click="openEdit">Editar</v-btn>
             <span class="px-1"></span>
             <v-btn color="red" @click="openDelete" dark>Desactivar</v-btn>
         </div>
+
         <span class="spacer"></span>
-        <div class="d-flex align-center">
+
+        <div class="d-flex align-center header-index">
             <span class="pl-3">
                 <v-avatar size="136" class="avatar">
                     <v-img src="https://cdn.vuetifyjs.com/images/lists/2.jpg"></v-img>
@@ -25,11 +24,11 @@
                 </div>
             </span>
             <span class="pr-4">
-                <v-btn color="success" @click="openAdd" class="block-button">
+                <v-btn color="success buttons" @click="openAdd" class="block-button">
                     <v-icon left>mdi-plus</v-icon>
                     Agregar tutor
                 </v-btn>
-                <v-btn fab color="success" @click="openAdd" class="round-button">
+                <v-btn fab color="success buttons" @click="openAdd" class="round-button">
                     <v-icon x-large>mdi-plus</v-icon>
                 </v-btn>
             </span>
@@ -48,7 +47,13 @@
 <script>
 import { mapGetters } from "vuex";
 
+// Components 
+import HeaderFondo from "~/components/alumno_perfil/header_fondo.vue";
+
 export default {
+    components: {
+        HeaderFondo
+    },
     computed: {
         ...mapGetters("alumno", [
             "getAlumno",
@@ -72,6 +77,19 @@ export default {
 </script>
 
 <style scoped>
+.header-index{
+    position: relative;
+    z-index: 10;
+}
+.avatar{
+    position: relative;
+    z-index: 10;
+}
+.buttons{
+    position: relative;
+    z-index: 10;
+}
+
 .text-mobile{
     font-weight: 900;
     font-size: 18px;
@@ -96,44 +114,7 @@ export default {
     display: block;
     height: 63px;
 }
-.bg-alumno{
-    position: absolute;
-    overflow: hidden;
-    width: 100%;
-    height: 200px;
-}
-.cuadrado{
-    border-radius: 15px;
-    top: 0px;
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 200px;
-}
-.circle{
-    border-radius: 50%;
-    display: block;
-    background-color: white;
-    height: 136px;
-    width: 136px;
-    opacity: 0.6;
-    position: absolute;
-    left: 12px;
-    bottom: -40px;
-}
-.figura{
-    background: #673AB7;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #512DA8, #673AB7);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #512DA8, #673AB7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    border-radius: 20px;
-    display: block;
-    background-color: white;
-    height: 500px;
-    width: 30%;
-    position: absolute;
-    top: 10px;
-    right: 5vh;
-}
+
 .round-button{
     display: none;
 }

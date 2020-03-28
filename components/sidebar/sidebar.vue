@@ -37,14 +37,12 @@
         </v-list>
 
         <!-- Log out -->
-        <template v-slot:append>
-            <div class="log-out">
-                <v-btn text block color="morado">
-                    Logout
-                    <v-icon right>mdi-arrow-right</v-icon>
-                </v-btn>
-            </div>
-        </template>
+        <div class="log-out">
+            <v-btn text block color="morado">
+                Logout
+                <v-icon right>mdi-arrow-right</v-icon>
+            </v-btn>
+        </div>
     
         </v-navigation-drawer>
     </div>
@@ -66,8 +64,6 @@ export default {
     }),
     watch: {
         fixed: function( fixed ) {
-            console.log(fixed);
-            
             this.fix = fixed;
         }
     },
@@ -95,6 +91,9 @@ export default {
 .custom-title{
     font-size: 24px;
 }
+.spacer{
+        height: 40px;
+    }
 @media screen and (max-width: 581px){
     .btn-small{
         display: block;
