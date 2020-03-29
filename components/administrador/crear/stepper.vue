@@ -13,7 +13,11 @@
 
       <v-divider></v-divider>
 
-      <v-stepper-step step="3">Finalizar registro</v-stepper-step>
+      <v-stepper-step :complete="stepper > 3" step="3">Suscripción</v-stepper-step>
+
+      <v-divider></v-divider>
+
+      <v-stepper-step step="4">Finalizar registro</v-stepper-step>
 
     </v-stepper-header>
 
@@ -31,8 +35,13 @@
       </v-stepper-content>
 
       <v-stepper-content step="3" class="pa-2">
-        <h1> Detalle del registro</h1>
+        <h1> Suscripción </h1>
         <StepperItemTres/>
+      </v-stepper-content>
+
+      <v-stepper-content step="4" class="pa-2">
+        <h1> Detalle del registro</h1>
+        <StepperItemCuatro/>
       </v-stepper-content>
      
     </v-stepper-items>
@@ -47,12 +56,14 @@ import { mapGetters } from "vuex";
 import StepperItemUno from "~/components/administrador/crear/stepper_item_uno.vue";
 import StepperItemDos from "~/components/administrador/crear/stepper_item_dos.vue";
 import StepperItemTres from "~/components/administrador/crear/stepper_item_tres.vue";
+import StepperItemCuatro from "~/components/administrador/crear/stepper_item_cuatro.vue";
 
     export default {
         components: {
           StepperItemUno,
           StepperItemDos,
-          StepperItemTres
+          StepperItemTres,
+          StepperItemCuatro
         },
         data: () => ({
         }),

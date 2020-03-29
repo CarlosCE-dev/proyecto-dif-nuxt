@@ -32,15 +32,9 @@
                                   :rules="requiredRule">
                     </v-text-field>
                   </v-col>
-                  <v-col cols="12" sm="6" md="3">
-                    <v-checkbox v-model="guardian.active"
-                                required 
-                                label="Active">
-                    </v-checkbox>
-                  </v-col>
                   <v-col cols="12" sm="6" md="6">
                     <v-text-field v-model="guardian.birthdate"
-                                  label="Birthdate*"
+                                  label="Fecha de nacimiento*"
                                   prepend-icon="mdi-calendar"
                                   readonly
                                   :rules="requiredRule"
@@ -49,7 +43,8 @@
                     <ModalDatePicker v-model="modal_datepicker" @date="date"/>
                   </v-col>
                   <v-col cols="12" sm="6" md="6">
-                    <v-text-field label="Numero de celular*" 
+                    <v-text-field label="Numero de celular*"
+                                  prepend-icon="mdi-phone" 
                                   required 
                                   :rules="requiredRule"
                                   v-model="guardian.phoneNumber">
@@ -74,6 +69,13 @@
                               :rules="itemRule()"
                               required
                     ></v-select>
+                  </v-col>
+                  <v-spacer></v-spacer>
+                  <v-col cols="12" sm="12" md="3" align-self="end" offset-md="9">
+                    <v-checkbox v-model="guardian.active"
+                                required 
+                                label="Active">
+                    </v-checkbox>
                   </v-col>
                 </v-row>
               </v-container>

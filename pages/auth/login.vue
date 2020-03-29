@@ -1,5 +1,6 @@
 <template>
     <div>
+        <ModalSnackbar v-model="modal_snackbar.state" :snackbar="modal_snackbar"/>
         <div class="d-flex">
             <div class="left-view">
                 <span class="background-image" :style="{ backgroundImage: `url(${backgroundUrl})` }"></span>
@@ -80,11 +81,13 @@
 
 <script>
 import backgroundUrl from '~/assets/images/kids_happy.jpg';
-
 // Helpers
 import { orientationType } from '~/helpers/orientation';
+// Components
+import ModalSnackbar from '~/components/ui/snackbar.vue';
 
 export default({
+    components: { ModalSnackbar },
     layout: 'login',
     data: () => ({
         // Image
@@ -106,11 +109,25 @@ export default({
             ( v ) => !!v || 'E-mail is required',
             ( v ) => /.+@.+\..+/.test(v) || 'E-mail must be valid',
         ],
+        // Modals
+        modal_snackbar: { color: 'orange', timeout: 3000, state: false , text: 'Porfavor de rellenar todos los campos requeridos', top: true }
     }),
     methods: {
         login() {
+            
             // Validar que los campos cumplan las condiciones
-            // if (!this.form.validate() ) return;
+            if ( !this.$refs.form.validate() ) {
+                return this.modal_snackbar = { 
+                    color: 'orange', 
+                    timeout: 3000, 
+                    state: true, 
+                    text: 'Porfavor de rellenar todos los campos requeridos', 
+                    top: true 
+                }
+            }
+
+            localStorage.setItem('token', 'true');
+            this.$router.push({ path: '/' });
         }
     },
     beforeMount () {

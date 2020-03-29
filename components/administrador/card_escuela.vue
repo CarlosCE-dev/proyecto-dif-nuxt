@@ -1,13 +1,14 @@
 <template>
     <div>
-        <v-card class="card-escuela" color="azul" dark>
+        <v-card class="card-escuela">
+            <span class="icon"></span>
             <span class="square"></span>
             <v-container fluid>
                 <v-row no-gutters>
                     <v-col cols="12" md="6" sm="6" xs="12">
                         <div class="d-flex align-center justify-center">
                             <v-list-item>
-                                <v-list-item-avatar>
+                                <v-list-item-avatar size="84">
                                     <v-img src="https://cdn.vuetifyjs.com/images/lists/2.jpg"></v-img>
                                 </v-list-item-avatar>
                                 <v-list-item-content class="sm-ctn">

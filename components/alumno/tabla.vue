@@ -12,6 +12,7 @@
             <v-col align-self="end" justify-self="end" class="px-0 py-1" cols="12" sm="12" md="6">
                 <div class="d-flex justify-end">
                     <v-btn color="success" @click="modal_agregar = true">
+                        <v-icon left>mdi-plus</v-icon>
                         Agregar alumno
                     </v-btn>
                 </div>
@@ -30,19 +31,19 @@
                 <div class="table-headers">
                     <div class="custom-table-header flex-basis-5"></div>
                     <div class="custom-table-header flex-basis-10">
-                        <p>Card Folio</p>
+                        <p>Folio</p>
                     </div>
                     <div class="custom-table-header flex-basis-20">
-                        <p>Name</p>
+                        <p>Nombre</p>
                     </div>
                     <div class="custom-table-header flex-basis-20">
-                        <p>Institute</p>
+                        <p>Insituto</p>
                     </div>
                     <div class="custom-table-header flex-basis-10">
-                        <p>Gender</p>
+                        <p>Genero</p>
                     </div>
                     <div class="custom-table-header flex-basis-20">
-                        <p class="tab-header">Options</p>
+                        <p class="tab-header">Opciones</p>
                     </div>
                 </div>
             </v-card>
@@ -70,7 +71,7 @@
                     <!-- Cell -->
                     <div class="custom-table-cell flex-basis-10">
                         <span class="mobile-column-name">
-                            Card Folio
+                            Folio
                         </span>
                         <div class="center-wrapper">
                             <span class="column-text">{{ alumno.studentCardFolio }}</span>
@@ -81,7 +82,7 @@
                     <!-- Cell -->
                     <div class="custom-table-cell flex-basis-20">
                         <span class="mobile-column-name">
-                            Name
+                            Nombre
                         </span>
                         <div class="center-wrapper">
                             <span class="column-text">
@@ -95,7 +96,7 @@
                    <!-- Cell -->
                     <div class="custom-table-cell flex-basis-20">
                         <span class="mobile-column-name">
-                            Institute
+                            Instituto
                         </span>
                         <div class="center-wrapper">
                             <span class="column-text">{{ alumno.instituteId }}</span>
@@ -106,7 +107,7 @@
                     <!-- Cell -->
                     <div class="custom-table-cell flex-basis-10">
                         <span class="mobile-column-name">
-                            Gender
+                            Genero
                         </span>
                         <div class="center-wrapper">
                             <span class="column-text">{{ alumno.gender }}</span>
@@ -117,7 +118,10 @@
                     <!-- Cell -->
                     <div class="custom-table-cell flex-basis-10  action-cell">
                         <div class="center-wrapper pa-1">
-                            <v-btn small color="orange" class="white--text" @click="gestionar( alumno )"> Gestionar </v-btn>
+                            <v-btn small color="orange" class="white--text" @click="gestionar( alumno )"> 
+                                <v-icon left>mdi-pencil-outline</v-icon>
+                                Gestionar 
+                            </v-btn>
                         </div>
                     </div>
                      <!-- Cell -->
@@ -125,7 +129,10 @@
                      <!-- Cell -->
                     <div class="custom-table-cell flex-basis-10  action-cell">
                         <div class="center-wrapper pa-1">
-                            <v-btn small color="red" class="white--text" @click="borrar( alumno )"> Desactivar </v-btn>
+                            <v-btn small color="red" class="white--text" @click="borrar( alumno )"> 
+                                <v-icon left>mdi-block-helper</v-icon>
+                                Desactivar 
+                            </v-btn>
                         </div>
                     </div>
                      <!-- Cell -->

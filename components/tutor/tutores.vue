@@ -5,6 +5,7 @@
         <ModalBorrar v-model="modal_borrar" @borrado="borrado"/>
 
         <v-container fluid>
+            <h1> Tutores </h1>
             <v-row>
                 <v-col cols="12" md="6" class="pa-2" v-for="(tutor, index) in tutores" :key="index">
                     <!-- Tutores -->

@@ -2,9 +2,9 @@
   <v-app dark>
     
 
-    <Sidebar v-model="drawer" :fixed="fixed" :items="items"/>
+    <Sidebar class="sidebar" v-model="drawer" :fixed="fixed" :items="items"/>
 
-    <Appbar @action="drawerController"/>
+    <Appbar class="appbar" @action="drawerController"/>
 
     <v-content class="main-content custom-scroll">
       
@@ -52,7 +52,7 @@ export default ({
         { name: 'Configuración',  route: "/configuracion", icon: 'mdi-cog' },
         { name: 'Administrador',  route: "/administrador", icon: 'mdi-tools' },  
         ],
-        modal_snackbar: false
+        modal_snackbar: { color: 'orange', timeout: 3000, state: false , text: 'Porfavor de rellenar todos los campos requeridos', top: true }
     }),
     computed: {
       ...mapGetters("ui", [
@@ -88,6 +88,7 @@ export default ({
 </script>
 
 <style>
+
 .fondo-tarjeta{
   border-top-left-radius: 10px  !important;
   border-top-right-radius: 10px !important;

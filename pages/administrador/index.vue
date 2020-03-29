@@ -7,12 +7,15 @@
         <h1 class="pa-1">Administrador</h1>
 
         <div class="d-flex justify-end pa-1">
-            <v-btn color="success" @click="crear"> Crear nuevo registro </v-btn>
+            <v-btn color="success" @click="crear">
+                <v-icon left>mdi-plus</v-icon>
+                Crear nuevo registro 
+            </v-btn>
         </div>
 
         <v-container fluid class="pa-0">
             <v-row no-gutters>
-                <v-col class="pa-1" cols="12" v-for="( escuela, index ) in escuelas" :key="index">
+                <v-col class="pa-1" cols="12" md="6" v-for="( escuela, index ) in escuelas" :key="index">
                     <CardEscuela :escuela="escuela"/>
                 </v-col>
             </v-row>
