@@ -27,7 +27,7 @@
             <v-card class="custom-card" color="azul">
                 <v-system-bar class="azul pa-4 system-bar">
                 <v-icon class="white--text mr-4">mdi-table-large</v-icon>
-                <span class="white--text">Usuarios</span>
+                <span class="white--text">Guardianes</span>
                 </v-system-bar>
                 <div class="table-headers">
                     <div class="custom-table-header flex-basis-5"></div>
@@ -41,7 +41,7 @@
                         <p>Profile</p>
                     </div>
                     <div class="custom-table-header flex-basis-20">
-                        <p class="tab-header">Options</p>
+                        <p class="tab-header">Opciones</p>
                     </div>
                 </div>
             </v-card>
@@ -67,7 +67,7 @@
                     <!-- Cell -->
                     <div class="custom-table-cell flex-basis-20">
                         <span class="mobile-column-name">
-                            Name
+                            Nombre
                         </span>
                         <div class="center-wrapper">
                             <span class="column-text">
@@ -81,7 +81,7 @@
                     <!-- Cell -->
                     <div class="custom-table-cell flex-basis-20">
                         <span class="mobile-column-name">
-                            Email
+                            Correo
                         </span>
                         <div class="center-wrapper">
                             <span class="column-text">{{ guardian.email }}</span>
@@ -92,7 +92,7 @@
                     <!-- Cell -->
                     <div class="custom-table-cell flex-basis-10">
                         <span class="mobile-column-name">
-                            Profile
+                            Perfil
                         </span>
                         <div class="center-wrapper">
                             <span class="column-text">{{ guardian.profileId }}</span>

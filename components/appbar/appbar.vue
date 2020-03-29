@@ -16,7 +16,7 @@
         }),
         methods: {
             action() {
-                this.$emit('action', null )
+                this.$emit('action')
             }
         },
         created(){

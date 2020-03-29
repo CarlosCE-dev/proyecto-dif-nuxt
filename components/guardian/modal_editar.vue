@@ -39,15 +39,10 @@
                                   :rules="emailRule">
                     </v-text-field>
                   </v-col>
-                  <v-col cols="12" sm="6" md="3">
-                    <v-checkbox v-model="guardian.active"
-                                required 
-                                label="Active">
-                    </v-checkbox>
-                  </v-col>
+                  
                   <v-col cols="12" sm="6" md="6">
                     <v-text-field v-model="guardian.birthdate"
-                                  label="Birthdate*"
+                                  label="Fecha de nacimiento*"
                                   prepend-icon="mdi-calendar"
                                   readonly
                                   :rules="requiredRule"
@@ -81,6 +76,12 @@
                               :rules="itemRule()"
                               required
                     ></v-select>
+                  </v-col>
+                  <v-col cols="12" sm="6" md="3">
+                    <v-checkbox v-model="guardian.active"
+                                required 
+                                label="Active">
+                    </v-checkbox>
                   </v-col>
                 </v-row>
               </v-container>

@@ -4,7 +4,7 @@
         <v-dialog v-model="show" persistent max-width="600px">
           <v-card>
             <v-card-title>
-              <span class="headline">Editar un nuevo alumno</span>
+              <span class="headline">Editar alumno</span>
             </v-card-title>
             <v-form ref="form" v-model="valid" lazy-validation>
             <v-card-text>
