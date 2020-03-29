@@ -13,6 +13,7 @@
                 <v-col align-self="end" justify-self="end" class="px-0 py-1" cols="12" sm="12" md="6">
                     <div class="d-flex justify-end">
                         <v-btn color="success" @click="modal_agregar = true">
+                            <v-icon left>mdi-plus</v-icon>
                             Agregar guardian
                         </v-btn>
                     </div>
@@ -102,7 +103,10 @@
                     <!-- Cell -->
                     <div class="custom-table-cell flex-basis-10  action-cell">
                         <div class="center-wrapper pa-1">
-                            <v-btn small color="orange" class="white--text" @click="editar( guardian )"> Editar </v-btn>
+                            <v-btn small color="orange" class="white--text" @click="editar( guardian )">
+                                <v-icon left>mdi-pencil-outline</v-icon>
+                                Editar 
+                            </v-btn>
                         </div>
                     </div>
                      <!-- Cell -->
@@ -110,7 +114,10 @@
                      <!-- Cell -->
                     <div class="custom-table-cell flex-basis-10  action-cell">
                         <div class="center-wrapper pa-1">
-                            <v-btn small color="red" class="white--text" @click="borrar( guardian )"> Desactivar </v-btn>
+                            <v-btn small color="red" class="white--text" @click="borrar( guardian )">
+                                <v-icon left>mdi-block-helper</v-icon>
+                                Desactivar 
+                            </v-btn>
                         </div>
                     </div>
                      <!-- Cell -->

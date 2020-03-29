@@ -88,14 +88,7 @@ export default ({
 </script>
 
 <style>
-.appbar{
-  position: relative;
-  z-index: 20;
-}
-.sidebar{
-  position: relative;
-  z-index: 21;
-}
+
 .fondo-tarjeta{
   border-top-left-radius: 10px  !important;
   border-top-right-radius: 10px !important;

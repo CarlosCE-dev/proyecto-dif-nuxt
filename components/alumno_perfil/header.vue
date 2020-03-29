@@ -3,10 +3,27 @@
         <!-- Fondo -->
         <HeaderFondo/>
 
-        <div class="d-flex align-center justify-end pa-4 buttons">
-            <v-btn color="orange" dark @click="openEdit">Editar</v-btn>
+        <div class="d-flex align-center justify-end px-4 buttons">
+            <v-btn text dark to="/alumnos">
+                <v-icon left>mdi-arrow-left</v-icon>
+                Back
+            </v-btn>
+            <v-spacer></v-spacer>
+            <v-btn small fab dark color="orange" @click="openEdit" class="round-button" elevation="0">
+                <v-icon >mdi-pencil-outline</v-icon>
+            </v-btn>
+            <v-btn color="orange" class="block-button" dark @click="openEdit">
+                <v-icon left>mdi-pencil-outline</v-icon>
+                Editar
+            </v-btn>
             <span class="px-1"></span>
-            <v-btn color="red" @click="openDelete" dark>Desactivar</v-btn>
+            <v-btn small fab dark color="red" @click="openDelete" class="round-button" elevation="0">
+                <v-icon >mdi-block-helper</v-icon>
+            </v-btn>
+            <v-btn color="red" class="block-button" @click="openDelete" dark>
+                <v-icon left>mdi-block-helper</v-icon>
+                Desactivar
+            </v-btn>
         </div>
 
         <span class="spacer"></span>
@@ -79,15 +96,15 @@ export default {
 <style scoped>
 .header-index{
     position: relative;
-    z-index: 10;
+    z-index: 4;
 }
 .avatar{
     position: relative;
-    z-index: 10;
+    z-index: 4;
 }
 .buttons{
     position: relative;
-    z-index: 10;
+    z-index:4;
 }
 
 .text-mobile{
@@ -96,10 +113,10 @@ export default {
     display: none;
 }
 .text{
-    line-height: 1.5rem;
+    line-height: 1.7rem;
     padding-left: 10px;
     position: absolute;
-    top: 15px;
+    top: 13px;
     font-size: 24px;
     
     color: white;
@@ -114,9 +131,16 @@ export default {
     display: block;
     height: 63px;
 }
-
 .round-button{
     display: none;
+}
+@media screen and (max-width: 449px){
+    .round-button{
+        display: block;
+    }
+    .block-button{
+        display: none;
+    }
 }
 @media screen and (max-width: 700px){
     .text{
@@ -124,14 +148,6 @@ export default {
     }
     .text-mobile{
         display: block;
-    }
-}
-@media screen and (max-width: 430px){
-    .round-button{
-        display: block;
-    }
-    .block-button{
-        display: none;
     }
 }
 </style>

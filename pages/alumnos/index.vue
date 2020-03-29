@@ -26,12 +26,7 @@ export default {
 
         const tutor = { firstName: 'Ttusdasd', lastName: 'Angelica', secondLastName: 'Pasd' }
         const tutor2 = { firstName: 'aaaaaaaaaaaaaaa', lastName: 'Angelica', secondLastName: 'Pasd' }
-        const temp2 = [ tutor, tutor2, tutor2,tutor2,tutor2,tutor2,tutor2,tutor2,tutor2, 
-        tutor, tutor2, tutor2,tutor2,tutor2,tutor2,tutor2,tutor2,tutor2,
-        tutor, tutor2, tutor2,tutor2,tutor2,tutor2,tutor2,tutor2,tutor2,
-        tutor, tutor2, tutor2,tutor2,tutor2,tutor2,tutor2,tutor2,tutor2,
-        tutor, tutor2, tutor2,tutor2,tutor2,tutor2,tutor2,tutor2,tutor2,
-        tutor, tutor2, tutor2,tutor2,tutor2,tutor2,tutor2,tutor2,tutor2,]
+        const temp2 = [ tutor, tutor2, tutor2, ]
         this.$store.commit('tutor/load', temp2 );
     }
 }
