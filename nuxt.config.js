@@ -57,7 +57,8 @@ export default {
   ** https://github.com/nuxt-community/vuetify-module
   */
   env: {
-    url: process.env.url || 'http://192.168.0.12:2020/'
+    URL: process.env.url || 'http://microstest.gruporoga.com:5050',
+    API: process.env.api || '/api/v1/'
   },
   router: {
     // trailingSlashes: true,

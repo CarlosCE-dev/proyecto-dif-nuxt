@@ -32,11 +32,11 @@
                         <v-container>
                             <v-row align="center" justify="center" class="pa-0">
                                 <v-col cols="11" class="pa-0">
-                                    <v-text-field :rules="emailRules"
-                                                v-model="email" 
+                                    <v-text-field :rules="requiredRules"
+                                                v-model="user" 
                                                 type="text" 
                                                 color="morado" 
-                                                placeholder="Email" 
+                                                placeholder="Usuario" 
                                                 rounded 
                                                 outlined
                                                 required 
@@ -52,7 +52,7 @@
                                 <v-col cols="11" class="pa-0">
                                     <v-text-field class="input-text" 
                                                 :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'" 
-                                                :rules="passwordRules"
+                                                :rules="requiredRules"
                                                 v-model="password" 
                                                 :type="show ? 'text' : 'password'" 
                                                 @click:append="show = !show"
@@ -97,23 +97,19 @@ export default({
         // Form
         valid: true,
         // Login
-        email: '',
+        user: '',
         password: '',
         show: false,
         // Rules
-        passwordRules: [
-            ( v ) => !!v || 'Password is required',
-            ( v ) => (v && v.length <= 10) || 'Name must be less than 10 characters',
-        ],
-        emailRules: [
-            ( v ) => !!v || 'E-mail is required',
-            ( v ) => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+        requiredRules: [
+            ( v ) => !!v || 'This field is required',
         ],
         // Modals
         modal_snackbar: { color: 'orange', timeout: 3000, state: false , text: 'Porfavor de rellenar todos los campos requeridos', top: true }
     }),
     methods: {
-        login() {
+        async login() {
+            
             
             // Validar que los campos cumplan las condiciones
             if ( !this.$refs.form.validate() ) {
@@ -125,6 +121,14 @@ export default({
                     top: true 
                 }
             }
+
+            const payload = { user: this.user, password: this.password }
+            await this.$axios.login().then( ( resp ) => {
+                console.log( resp );
+            }).catch( (err) => {
+                console.log(resp );
+                
+            });
 
             localStorage.setItem('token', 'true');
             this.$router.push({ path: '/' });

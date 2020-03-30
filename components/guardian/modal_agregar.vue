@@ -142,13 +142,23 @@ export default ({
       radioRule(){
         return [ this.guardian.gender !== "" || "At least one should be selected" ];
       },
-      agregar() {
+      async agregar() {
         
         if ( !this.$refs.form.validate() ) {
           const snackbar = { color: 'orange', timeout: 3000, state: true , text: 'Porfavor de rellenar todos los campos requeridos', top: true };
           return this.$store.commit('ui/snackbar', snackbar );
         }
         
+  console.log(this.guardian);
+  
+
+        await this.$adminApi.addNewClassRoom( this.guardian ).then( ( resp ) => {
+            console.log(resp);
+        }).catch( (err) => {
+          console.log(err);
+          
+        });
+
         this.$store.commit('ui/loader', true );
         
         this.$store.commit('guardian/add', this.guardian );
