@@ -123,12 +123,12 @@ export default({
             }
 
             const payload = { user: this.user, password: this.password }
-            await this.$axios.login().then( ( resp ) => {
-                console.log( resp );
-            }).catch( (err) => {
-                console.log(resp );
+            // await this.$axios.login( payload ).then( ( resp ) => {
+            //     console.log( resp );
+            // }).catch( (err) => {
+            //     console.log(resp );
                 
-            });
+            // });
 
             localStorage.setItem('token', 'true');
             this.$router.push({ path: '/' });

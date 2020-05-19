@@ -25,6 +25,7 @@ import { mapGetters } from "vuex";
 
 // Helpers
 import { orientationType } from '~/helpers/orientation';
+
 // Components
 import Sidebar from "~/components/sidebar/sidebar.vue";
 import Appbar from "~/components/appbar/appbar.vue";

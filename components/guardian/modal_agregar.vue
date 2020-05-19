@@ -1,7 +1,7 @@
 <template>
     <div>
       <v-row justify="center">
-        <v-dialog v-model="show" persistent max-width="600px">
+        <v-dialog v-model="show" persistent max-width="80%">
 
           <v-card>
             <v-card-title>
@@ -32,7 +32,14 @@
                                   :rules="requiredRule">
                     </v-text-field>
                   </v-col>
-                  <v-col cols="12" sm="6" md="6">
+                  <v-col cols="12" sm="6" md="4">
+                    <v-text-field label="Email*" 
+                                  required 
+                                  v-model="guardian.email"
+                                  :rules="emailRule">
+                    </v-text-field>
+                  </v-col>
+                  <v-col cols="12" sm="6" md="4">
                     <v-text-field v-model="guardian.birthdate"
                                   label="Fecha de nacimiento*"
                                   prepend-icon="mdi-calendar"
@@ -42,7 +49,7 @@
                     ></v-text-field>
                     <ModalDatePicker v-model="modal_datepicker" @date="date"/>
                   </v-col>
-                  <v-col cols="12" sm="6" md="6">
+                  <v-col cols="12" sm="6" md="4">
                     <v-text-field label="Numero de celular*"
                                   prepend-icon="mdi-phone" 
                                   required 
@@ -50,17 +57,7 @@
                                   v-model="guardian.phoneNumber">
                     </v-text-field>
                   </v-col>
-                  <v-col cols="12" sm="6" md="6">
-                    Genero*
-                    <v-radio-group v-model="guardian.gender" 
-                                  dense 
-                                  class="radio-group" 
-                                  required
-                                  :rules="radioRule()">
-                      <v-radio v-for="n in genero" :key="n" :label="`${n}`" :value="n"></v-radio>
-                    </v-radio-group>
-                  </v-col>
-                  <v-col cols="12" sm="6" md="6">
+                  <v-col cols="12" sm="6" md="4">
                     <v-select v-model="guardian.profileId" 
                               item-text="profileName" 
                               item-value="profileId"
@@ -70,8 +67,17 @@
                               required
                     ></v-select>
                   </v-col>
-                  <v-spacer></v-spacer>
-                  <v-col cols="12" sm="12" md="3" align-self="end" offset-md="9">
+                  <v-col cols="12" sm="6" md="2">
+                    Genero*
+                    <v-radio-group v-model="guardian.gender" 
+                                  dense 
+                                  class="radio-group" 
+                                  required
+                                  :rules="radioRule()">
+                      <v-radio v-for="n in genero" :key="n" :label="`${n}`" :value="n"></v-radio>
+                    </v-radio-group>
+                  </v-col>
+                  <v-col cols="12" sm="6" md="2">
                     <v-checkbox v-model="guardian.active"
                                 required 
                                 label="Active">
@@ -149,15 +155,12 @@ export default ({
           return this.$store.commit('ui/snackbar', snackbar );
         }
         
-  console.log(this.guardian);
-  
-
-        await this.$adminApi.addNewClassRoom( this.guardian ).then( ( resp ) => {
-            console.log(resp);
-        }).catch( (err) => {
-          console.log(err);
+        // await this.$adminApi.addNewClassRoom( this.guardian ).then( ( resp ) => {
+        //     console.log(resp);
+        // }).catch( (err) => {
+        //   console.log(err);
           
-        });
+        // });
 
         this.$store.commit('ui/loader', true );
         
