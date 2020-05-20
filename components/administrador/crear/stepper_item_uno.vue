@@ -113,20 +113,26 @@ export default {
       emailRule: email(),
     }),
     computed: {
-      show: {
-        get () {
-          return this.value;
-        },
-        set (value) {
-          this.$emit('input', value)
-        }
-      },
       ...mapGetters("profile", [
         "getProfiles",
       ]),
       profiles(){
         return this.getProfiles
-      } 
+      },
+      ...mapGetters("ui", [
+        "getCleanStepper",
+      ]),
+      clean(){
+        return this.getCleanStepper
+      }  
+    },
+    watch:{
+        clean( value ){
+            if ( value > 0 ) {
+                this.guardian = new Guardian();
+                this.$refs.form.resetValidation();
+            }
+        }
     },
     methods: {
         itemRule(){

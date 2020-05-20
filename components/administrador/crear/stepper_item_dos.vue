@@ -96,7 +96,7 @@
                 </v-card-text>
             </v-form>
             <v-card-actions>
-                <v-btn color="orange" class="white--text" @click="stepper( 1 )">Regresar</v-btn>
+                <v-btn color="orange" class="white--text" @click="back">Regresar</v-btn>
                 <v-spacer></v-spacer>
                 <v-btn color="primary" @click="stepper( 3 )"> Continue </v-btn>
             </v-card-actions>
@@ -134,11 +134,28 @@ export default {
       ]),
       profiles(){
         return this.getProfiles
-      } 
+      },
+      ...mapGetters("ui", [
+        "getCleanStepper",
+      ]),
+      clean(){
+        return this.getCleanStepper
+      }   
+    },
+    watch:{
+        clean( value ){
+            if ( value > 0 ) {
+                this.escuela = new Institute();
+                this.$refs.form.resetValidation();
+            }
+        }
     },
     methods: {
         itemRule(){
             return [ this.escuela.profileId !== -1 || "At least one should be selected" ];
+        },
+        back(){
+             this.$store.commit('ui/stepper', 1 );
         },
         stepper( int ) {
 

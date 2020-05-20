@@ -42,7 +42,7 @@
                   <v-col cols="12" sm="6" md="4">
                     <v-text-field v-model="guardian.birthdate"
                                   label="Fecha de nacimiento*"
-                                  prepend-icon="mdi-calendar"
+                                  prepend-inner-icon="mdi-calendar"
                                   readonly
                                   :rules="requiredRule"
                                   @click="modal_datepicker = true"
@@ -51,7 +51,7 @@
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
                     <v-text-field label="Numero de celular*"
-                                  prepend-icon="mdi-phone" 
+                                  prepend-inner-icon="mdi-phone" 
                                   required 
                                   :rules="requiredRule"
                                   v-model="guardian.phoneNumber">
@@ -85,7 +85,7 @@
                   </v-col>
                 </v-row>
               </v-container>
-              <small>*Indica los campos requeridos</small>
+              <small class="pl-4 red--text">*Indica los campos requeridos</small>
             </v-card-text>
             </v-form>
             <v-card-actions>

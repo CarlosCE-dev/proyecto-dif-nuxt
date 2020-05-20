@@ -33,7 +33,10 @@
                     <v-spacer></v-spacer>
                     <v-col> 
                         <div class="d-flex justify-end">
-                            <v-btn color="white" class="morado--text">Gestionar suscripción</v-btn>
+                            <v-btn large outlined color="morado">
+                                <v-icon color="moradog" left>mdi-hammer-screwdriver</v-icon>
+                                Gestionar suscripción
+                            </v-btn>
                         </div>
                     </v-col>
                 </v-row>

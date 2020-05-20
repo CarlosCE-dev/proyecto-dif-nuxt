@@ -6,10 +6,10 @@
 
         <h1 class="pa-1">Administrador</h1>
 
-        <div class="d-flex justify-end pa-1">
+        <div class="d-flex justify-end px-1 py-3">
             <v-btn color="success" @click="crear">
                 <v-icon left>mdi-plus</v-icon>
-                Crear nuevo registro 
+                Crear nueva suscripción 
             </v-btn>
         </div>
 
