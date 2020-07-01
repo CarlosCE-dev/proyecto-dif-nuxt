@@ -11,13 +11,12 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.3.6",
-    "@nuxtjs/svg": "^0.1.6",
-    "moment": "^2.24.0",
-    "nuxt": "^2.0.0"
+    "@nuxtjs/axios": "^5.11.0",
+    "@nuxtjs/svg": "^0.1.11",
+    "moment": "^2.27.0",
+    "nuxt": "^2.13.2"
   },
   "devDependencies": {
-    "@nuxtjs/vuetify": "^1.0.0",
-    "@babel/compat-data": "^7.8.6"
+    "@nuxtjs/vuetify": "^1.11.2"
   }
 }
