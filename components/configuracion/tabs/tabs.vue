@@ -3,7 +3,8 @@
         <v-card>
             <v-tabs v-model="tab" background-color="morado" dark>
                 <v-tab v-for="item in items" :key="item.tab">
-                    {{ item }}
+                    <span class="mobile">{{ item.mobile }}</span>
+                    <span class="web">{{ item.name }}</span>
                 </v-tab>
             </v-tabs>
 
@@ -32,7 +33,16 @@ export default {
         FormDirector
     },
     data: () => ({
-        items: ['Editar director', 'Editar escuela']
+        items: [
+            {   
+                name: 'Editar director',
+                mobile: 'Director'
+            }, 
+            {
+                name: 'Editar escuela',
+                mobile: 'Escuela'
+            }
+        ]
     }),
     computed: {
         ...mapGetters("ui", [
@@ -50,6 +60,16 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-
+<style scoped>
+.mobile{
+    display: none;
+}
+@media screen and (max-width: 450px){
+    .mobile{
+        display: block;
+    }
+    .web{
+        display: none;
+    }
+}
 </style>
