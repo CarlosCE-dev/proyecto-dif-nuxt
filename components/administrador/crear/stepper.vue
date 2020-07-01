@@ -1,9 +1,9 @@
 <template>
     <div class="pa-2">
-  
-<v-stepper v-model="stepper" >
+   
+<v-stepper v-model="stepper" class="elevation-0">
     
-    <v-stepper-header>
+    <v-stepper-header class="stepper-header">
       
       <v-stepper-step :complete="stepper > 1" step="1">Ingresar director</v-stepper-step>
 
@@ -21,26 +21,26 @@
 
     </v-stepper-header>
 
-    <v-stepper-items>
+    <v-stepper-items class="fondo">
       
       <v-stepper-content step="1" class="pa-2">
-          <h1> Información del director</h1>
+          <h1 class="pl-4"> Información del director</h1>
           <StepperItemUno/>
       </v-stepper-content>
       
       
-      <v-stepper-content step="2" class="pa-2">
-        <h1> Información de la escuela</h1>
+      <v-stepper-content step="2" class="pa-2 fondo">
+        <h1 class="pl-4"> Información de la escuela</h1>
         <StepperItemDos/>
       </v-stepper-content>
 
       <v-stepper-content step="3" class="pa-2">
-        <h1> Suscripción </h1>
+        <h1  class="pl-4"> Suscripción </h1>
         <StepperItemTres/>
       </v-stepper-content>
 
       <v-stepper-content step="4" class="pa-2">
-        <h1> Detalle del registro</h1>
+        <h1  class="pl-4"> Resumen del nuevo registro</h1>
         <StepperItemCuatro/>
       </v-stepper-content>
      

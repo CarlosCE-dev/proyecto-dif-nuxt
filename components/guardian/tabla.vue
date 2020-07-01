@@ -6,19 +6,19 @@
         <ModalBorrar v-model="modal_borrar"/>
         <ModalEditar v-model="modal_editar"/>
 
-            <v-row class="pa-3">
-                <v-col class="px-0 py-1" cols="12" sm="12" md="6">
-                        <v-text-field prepend-icon="mdi-magnify" hide-details placeholder="Search..."></v-text-field>
-                </v-col>
-                <v-col align-self="end" justify-self="end" class="px-0 py-1" cols="12" sm="12" md="6">
-                    <div class="d-flex justify-end">
-                        <v-btn color="success" @click="modal_agregar = true">
-                            <v-icon left>mdi-plus</v-icon>
-                            Agregar guardian
-                        </v-btn>
-                    </div>
-                </v-col>
-            </v-row>
+        <v-row class="pa-3">
+            <v-col class="px-0 py-1" cols="12" sm="12" md="6">
+                    <v-text-field prepend-icon="mdi-magnify" hide-details placeholder="Search..."></v-text-field>
+            </v-col>
+            <v-col align-self="end" justify-self="end" class="px-0 py-1" cols="12" sm="12" md="6">
+                <div class="d-flex justify-end">
+                    <v-btn color="success" @click="modal_agregar = true">
+                        <v-icon left>mdi-plus</v-icon>
+                        Agregar guardian
+                    </v-btn>
+                </div>
+            </v-col>
+        </v-row>
      
         <!----- Table ------>
         <div class="custom-table-wrapper py-2">

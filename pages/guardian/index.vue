@@ -16,9 +16,7 @@ export default ({
         Table,
     },
     async created () {
-        // await this.$cataloguesApi.getUserProfiles().then( ( resp ) => {
-        //     console.log(resp);
-        // });
+       
 
         const prof_1 = { profileId: 1, profileName: 'Perfil 1' };
         const prof_2 = { profileId: 2, profileName: 'Perfil 2' }

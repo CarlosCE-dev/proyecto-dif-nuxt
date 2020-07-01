@@ -10,15 +10,15 @@
                 </div>
             </span>
             <div class="descripcion d-flex flex-column justify-center">
-               <div class="pa-4">
+               <div class="pa-4 pa-xs-2">
                     <v-icon color="morado">mdi-home</v-icon>
                     <span class="pl-3"><strong>Home</strong></span>
                </div>
-               <div class="pa-4">
+               <div class="pa-4 pa-xs-2">
                     <v-icon color="morado">mdi-calendar</v-icon>
                     <span class="pl-3"><strong>Home</strong></span>
                </div>
-               <div class="pa-4">
+               <div class="pa-4 pa-xs-2">
                     <v-icon color="morado">mdi-home</v-icon>
                     <span class="pl-3"><strong>Fecha de vencimiento</strong></span>
                </div>
@@ -71,4 +71,10 @@
     width: 60%;
     position: absolute;
 }
+@media screen and (max-width: 420px){
+    .texto-morado{
+        font-size:1rem;
+    }
+}
+
 </style>

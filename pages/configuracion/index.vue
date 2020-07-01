@@ -10,8 +10,9 @@
                 </v-col>
             </v-row>
             <v-row>
-                <v-col cols="12">
-                    <FormEscuela/>
+                <v-col cols="12" class="pa-2">
+                    <Tabs/>
+                    <!-- <FormEscuela/> -->
                 </v-col>
             </v-row>
         </v-container>  
@@ -20,16 +21,20 @@
 
 <script>
 import { mapGetters } from "vuex";
+
+// Tab component
+import Tabs from "~/components/configuracion/tabs/tabs.vue";
+
 // Componentes
 import FotoPerfil from "~/components/configuracion/foto_perfil.vue";
 import Suscripcion from "~/components/configuracion/suscripcion.vue";
-import FormEscuela from "~/components/configuracion/form_escuela.vue";
+
 
 export default {
     components: {
+        Tabs,
         FotoPerfil,
         Suscripcion,
-        FormEscuela
     },
     computed: {
         ...mapGetters("escuela", [

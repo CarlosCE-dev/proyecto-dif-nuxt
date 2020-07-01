@@ -6,6 +6,7 @@ function random () {
   
       constructor( institute = {} ){
         this.instituteId = institute.instituteId || random();
+        this.instituteName = institute.instituteName || random();
         this.instituteCode = institute.instituteCode || -1;
         this.address = institute.address || random();
         this.email = institute.email || 'test@test.com';
@@ -17,7 +18,7 @@ function random () {
         this.payCardPin = institute.payCardPin || 'Masculino';
         this.payCardSaved = institute.payCardSaved || random();
         this.profileId = institute.profileId ||  random();
-        this.stateId = institute.stateId || true;
+        this.stateId = institute.stateId || 1;
         this.municipalityId = institute.municipalityId || 1;
         this.localityId = institute.localityId || 1;
         this.photo = institute.photo || 1;
