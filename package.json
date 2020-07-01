@@ -17,6 +17,7 @@
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
-    "@nuxtjs/vuetify": "^1.0.0"
+    "@nuxtjs/vuetify": "^1.0.0",
+    "@babel/compat-data": "^7.8.6"
   }
 }
